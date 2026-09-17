@@ -1,78 +1,37 @@
-       <div class="reflection-block">
-              <h3>Strengths to build on</h3>
-              <p style="color:#596c82">Students already have multiple modes for demonstrating understanding, and the final products have a public-facing purpose. Those are useful conditions for deeper agency because you do not need to redesign the whole unit — you can build from existing choice and authenticity.</p>
-              <div class="source-line"><span class="tag navy">Interpretation</span><span>Based on the uploaded unit evidence and selected lenses</span></div>
-            </div>
-
-            <div class="reflection-block">
-              <h3>Questions worth considering</h3>
-              <div class="question-list">
-                <div class="question">Where could students make a decision that changes <strong>what they learn</strong>, not only how they present it?</div>
-                <div class="question">What must remain common for rigor and coherence — and what could genuinely be opened for student choice?</div>
-                <div class="question">Which learners might benefit from more structure when choice increases, and how could that support be designed into Tier 1 from the start?</div>
-              </div>
-            </div>
-
-            <div class="small-next">
-              <div class="kicker">One small next step</div>
-              <h3>Move one meaningful decision earlier.</h3>
-              <p>At the launch of the next inquiry, offer several authentic problem spaces and let teams define the question they want to investigate. Keep the learning goals and success criteria common.</p>
-              <button class="btn btn-secondary btn-small" id="saveNext">Save to My Growth</button>
-            </div>
-
-            <div class="reflection-block">
-              <h3>Possibilities to explore</h3>
-              <div class="question-list">
-                <div class="question"><strong>Agency:</strong> Invite students to propose or refine inquiry questions against clear boundaries.</div>
-                <div class="question"><strong>UDL:</strong> Keep multiple ways to engage and express understanding while clarifying the non-negotiable learning goal.</div>
-                <div class="question"><strong>Tier 1:</strong> Anticipate which students may need models, question stems, or conferencing so increased choice does not become reduced access.</div>
-              </div>
-            </div>
+              <span class="recent-icon file">▤</span>
+              <span class="recent-copy"><strong>Sustainable Futures unit</strong><small>Is product choice the same as agency?</small><span class="recent-tags">Agency · UDL · Tier 1</span></span>
+              <time>Sep 14</time>
+            </button>
           </div>
+        </section>
 
-          <div class="tab-panel" id="tab-connected">
-            <div class="connected-hero">
-              <div class="eyebrow" style="color:#f2a2b4">Connected practice</div>
-              <h3>One piece of evidence. Four reinforcing lenses.</h3>
-              <p>The value is not four separate reports. It is seeing how the same learner experience is described across AISG’s frameworks and the research that informs them.</p>
+        <section class="belief-card">
+          <div class="belief-mark">AISG</div>
+          <div><p class="eyebrow">Grounded in our shared beliefs</p><h2>Reflection should stay close to student experience.</h2><p>Feedback is framed around what students are saying, doing, producing and experiencing — then connected to the TLF, Teacher Growth Continuum, UDL and strong inclusive Tier 1.</p><button class="text-button light" data-nav="sources">See what grounds the AI →</button></div>
+        </section>
+      </section>
+
+      <section class="view" id="view-reflect" aria-labelledby="reflect-title">
+        <div class="reflect-header">
+          <button class="back-button" data-nav="home" aria-label="Back to home">←</button>
+          <div><p class="eyebrow">New reflection</p><h1 id="reflect-title">Bring one piece of evidence.</h1></div>
+        </div>
+
+        <div id="captureChooser" class="capture-chooser">
+          <p class="screen-help">Start with the evidence. You can add a question afterwards; the AI can keep the reflection broad if you do not.</p>
+          <button class="mode-button mode-video" data-mode="video"><span>▶</span><div><strong>Classroom video</strong><small>Record now or choose an existing video</small></div><b>→</b></button>
+          <button class="mode-button mode-audio" data-mode="audio"><span>●</span><div><strong>Voice note</strong><small>Record a quick thought after a lesson</small></div><b>→</b></button>
+          <button class="mode-button mode-file" data-mode="file"><span>▤</span><div><strong>Unit, lesson or resource</strong><small>PDF, Word, PowerPoint, image or text</small></div><b>→</b></button>
+          <button class="mode-button mode-write" data-mode="write"><span>✎</span><div><strong>Write or paste</strong><small>Notes, an activity, assessment or reflection</small></div><b>→</b></button>
+        </div>
+
+        <div id="captureWorkspace" class="capture-workspace" hidden>
+          <div class="workspace-card">
+            <div class="workspace-top"><button class="text-button" id="changeMode">← Change evidence</button><span class="step-chip">1 of 2 · Evidence</span></div>
+
+            <div class="capture-panel" data-panel="video" hidden>
+              <div class="panel-heading"><span class="panel-icon video">▶</span><div><h2>Classroom video</h2><p>Record a lesson on your phone or choose a video you already have.</p></div></div>
+              <label class="drop-zone video-zone" for="videoInput"><span class="big-upload">↑</span><strong>Record or choose video</strong><small>On a phone, your camera can open directly.</small><input id="videoInput" type="file" accept="video/*" capture="environment"></label>
+              <div class="file-preview" id="videoMeta" hidden><video id="videoPreview" controls playsinline></video><div><strong id="videoName"></strong><small id="videoSize"></small></div><button class="text-button" data-clear="video">Remove</button></div>
+              <div class="focus-presets"><span>Optional: pay attention to</span><div class="chip-row"><button class="focus-chip" data-focus="Student participation and whose voices are heard">Participation</button><button class="focus-chip" data-focus="Student agency, independence and meaningful decision-making">Agency</button><button class="focus-chip" data-focus="Cognitive demand, student thinking and questioning">Thinking</button><button class="focus-chip" data-focus="Access, learner variability and inclusive Tier 1">Access / UDL</button><button class="focus-chip" data-focus="Collaboration and how students build on one another's ideas">Collaboration</button></div></div>
             </div>
-            <div class="reflection-block">
-              <div class="source-line"><span class="tag red">Evidence from the unit</span></div>
-              <div class="evidence-quote">Students choose between a podcast, infographic, or prototype, while the inquiry question remains teacher-selected.</div>
-            </div>
-            <div class="connected-grid">
-              <div class="lens-card tlf"><div class="lens-label">AISG Transformative Learning Framework</div><h3>Agency + Personalisation</h3><p>Agency 2.2 emphasizes meaningful decisions about what students learn, how they learn, and how they demonstrate understanding. Personalisation 1.4 emphasizes multiple languages, modes, and pathways.</p><div class="lens-source">Source: TLF Learning Engagement Indicators · pp. 1–2</div></div>
-              <div class="lens-card udl"><div class="lens-label">Universal Design for Learning</div><h3>Choice + Action & Expression</h3><p>UDL supports purposeful options for choice and autonomy and multiple ways for learners to communicate understanding — while maintaining a clear learning goal.</p><div class="lens-source">Source: CAST UDL Guidelines 3.0 · Engagement / Action & Expression</div></div>
-              <div class="lens-card mtss"><div class="lens-label">MTSS / Tier 1</div><h3>Design access before adding intervention</h3><p>A strong Tier 1 response anticipates learner variability and adjusts the core learning experience before interpreting difficulty as a need for more intensive support.</p><div class="lens-source">Source: AISG Leading the Conditions for Engagement for All + MTSS Center</div></div>
-              <div class="lens-card growth"><div class="lens-label">Teacher Growth Continuum</div><h3>3c. Choice, Inquiry & Creativity</h3><p>The continuum moves from teacher-prescribed pathways toward students generating ideas, making decisions, independently managing inquiry, and ultimately designing learning pathways.</p><div class="lens-source">Source: Teacher Growth & Reflection Framework · Domain 3c, pp. 20–21</div></div>
-            </div>
-            <div class="together"><h3>What this suggests together</h3><p style="margin:0;color:#536981">The next move is not “more choice” in the abstract. It is to preserve clarity and access while shifting a consequential decision to students. That simultaneously strengthens agency, UDL-aligned design, inclusive Tier 1, and the student experience described in the Growth Continuum.</p></div>
-          </div>
-
-          <div class="tab-panel" id="tab-coach">
-            <div class="chat">
-              <div class="chat-head"><strong>AISG Reflect Coach</strong><span class="tag red">Demo AI</span></div>
-              <div class="messages" id="messages">
-                <div class="message ai">I’m looking at your unit, your question about agency, and the AISG framework sources connected to this reflection. What would you like to think through?</div>
-                <div class="message user">How could I increase agency without making the task too open-ended?</div>
-                <div class="message ai">Keep the learning goal and success criteria fixed, but open one decision that has real consequences. For this unit, you could offer 3–4 sustainability problem spaces, then let teams define the specific question and audience. Students gain ownership of direction while you preserve rigor, pacing, and the evidence you need to see.</div>
-              </div>
-              <div class="suggestions">
-                <button class="suggestion" data-coach="Why did you connect this to MTSS?">Why MTSS?</button>
-                <button class="suggestion" data-coach="Give me three alternatives I could try next lesson.">Three alternatives</button>
-                <button class="suggestion" data-coach="How could I make this more accessible without reducing challenge?">Accessibility without less challenge</button>
-                <button class="suggestion" data-coach="I disagree with your interpretation of agency. Explain your reasoning.">Challenge the AI</button>
-              </div>
-              <div class="chat-input"><input id="coachInput" placeholder="Ask about your reflection…" aria-label="Ask the AI coach"/><button class="btn btn-primary btn-small" id="coachSend">Send</button></div>
-            </div>
-          </div>
-
-          <div class="tab-panel" id="tab-adapt">
-            <div class="summary-box"><div class="kicker">Adapt this learning experience</div><p>Here is one possible revision based on the reflection. Keep it, edit it, reject it, or ask for another version — teacher judgement stays in control.</p></div>
-            <div class="adapt-grid">
-              <div class="adapt-card"><div class="adapt-head"><strong>Current design</strong><span class="tag">Before</span></div><div class="adapt-body"><ul><li>Teacher introduces one sustainability question.</li><li>All groups investigate the same question.</li><li>Students choose podcast, infographic, or prototype.</li><li>Common rubric evaluates evidence, reasoning, and communication.</li></ul></div></div>
-              <div class="adapt-card after"><div class="adapt-head"><strong>Possible revision</strong><span class="tag green">AI draft</span></div><div class="adapt-body"><textarea class="edit-area">1. Launch with four authentic local sustainability problem spaces.
-
-2. Teams select a problem space and formulate a question that meets three shared criteria: significance, investigability, and connection to the unit concept.
-
-3. Keep the learning goal, evidence expectations, and success crit
