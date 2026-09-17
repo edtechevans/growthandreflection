@@ -1,0 +1,120 @@
+<div class="app">
+  <div class="topbar-wrap">
+    <header class="topbar" aria-label="Primary navigation">
+      <div class="brand" role="button" tabindex="0" data-go="home" aria-label="Go to AISG Reflect home">
+        <div class="aisg-logo-wrap"><img id="aisgLogo" class="aisg-logo" alt="American International School of Guangzhou (AISG) logo"></div>
+        <div class="brand-copy"><strong>AISG Reflect</strong><small>AI-supported professional reflection</small></div>
+      </div>
+      <nav class="nav" aria-label="App sections">
+        <button class="active" data-go="home">Home</button>
+        <button data-go="growth">My growth</button>
+        <button data-go="frameworks">Frameworks</button>
+        <button data-go="voice">Voice reflection</button>
+      </nav>
+      <div class="demo-pill" title="This prototype uses simulated AI responses grounded in source documents"><span class="demo-dot"></span>Demo AI</div>
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">Menu</button>
+    </header>
+  </div>
+
+  <main>
+    <section class="view active" id="view-home">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Professional reflection</div>
+          <h1>What would you like to think about today?</h1>
+          <p class="lead">Bring something from your practice. AISG Reflect helps you notice evidence, connect it to the frameworks that guide learning at AISG, and decide what you might try next.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-open-start>Start a reflection <span aria-hidden="true">→</span></button>
+            <button class="btn btn-secondary" data-go="voice">Record a voice reflection</button>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="label">Your reflection space</div>
+          <div class="focus-title">Agency & learner ownership</div>
+          <p class="subtle">A theme you have been exploring across recent reflections.</p>
+          <div class="next-step">
+            <div class="mini-label">One small next step</div>
+            <p>Move one meaningful decision earlier in the learning process — from how students present to what they investigate.</p>
+          </div>
+          <div class="hero-mini-footer"><span>3 related reflections</span><button class="btn btn-ghost btn-small" data-go="growth">See the thread →</button></div>
+        </aside>
+      </div>
+
+      <div class="section">
+        <div class="section-head"><div><div class="eyebrow">Recent thinking</div><h2>Pick up where you left off.</h2></div><p>Private to you by default.</p></div>
+        <div class="cards">
+          <article class="card click-card" data-go="reflection" tabindex="0">
+            <div class="card-top"><div class="artifact-icon red">U</div><span class="tag red">Unit</span></div>
+            <h3>Grade 8 Sustainable Futures</h3>
+            <p>Exploring whether students have meaningful agency in the inquiry — not only choice in the final product.</p>
+            <div class="connections"><span class="tag">TLF · Agency</span><span class="tag green">UDL</span><span class="tag gold">Tier 1</span></div>
+            <div class="meta" style="margin-top:14px"><span>Today</span><span>•</span><span>4 evidence items</span></div>
+          </article>
+          <article class="card click-card" data-go="voice" tabindex="0">
+            <div class="card-top"><div class="artifact-icon green">◉</div><span class="tag green">Voice note</span></div>
+            <h3>Group work felt teacher-dependent</h3>
+            <p>“Students kept coming back to me for permission before making decisions…”</p>
+            <div class="connections"><span class="tag">Autonomy</span><span class="tag violet">Growth · 2c</span></div>
+            <div class="meta" style="margin-top:14px"><span>Yesterday</span><span>•</span><span>1m 18s</span></div>
+          </article>
+          <article class="card click-card" data-go="video" tabindex="0">
+            <div class="card-top"><div class="artifact-icon gold">▶</div><span class="tag gold">Video</span></div>
+            <h3>Seminar discussion</h3>
+            <p>Looking at who is speaking, how ideas build, and whether participation is broadly distributed.</p>
+            <div class="connections"><span class="tag">TLF · Collaboration</span><span class="tag violet">Growth · 3b</span></div>
+            <div class="meta" style="margin-top:14px"><span>Sep 14</span><span>•</span><span>18m 42s</span></div>
+          </article>
+        </div>
+
+        <div class="explore-strip">
+          <div class="navy-panel">
+            <div class="eyebrow" style="color:#f4a9b9">Grounded in AISG practice</div>
+            <h3>Your frameworks are the knowledge base.</h3>
+            <p>The eventual AI will retrieve from AISG’s TLF, Teacher Growth & Reflection Framework, UDL/MTSS guidance, and other approved sources before offering feedback.</p>
+            <button class="btn btn-secondary btn-small" data-go="frameworks">Explore the framework library</button>
+          </div>
+          <div class="how-panel">
+            <div class="eyebrow">A simple cycle</div>
+            <h3 style="font-size:27px;margin-top:10px">Evidence → Reflection → Action</h3>
+            <div class="steps">
+              <div class="step-mini"><div class="step-num">1</div><b>Bring evidence</b><span class="small subtle">A unit, lesson, assessment, voice note or video.</span></div>
+              <div class="step-mini"><div class="step-num">2</div><b>Look through lenses</b><span class="small subtle">TLF, UDL, MTSS and the Growth Continuum.</span></div>
+              <div class="step-mini"><div class="step-num">3</div><b>Choose what matters</b><span class="small subtle">Question it, adapt it, and decide your next step.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-reflection">
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">Unit reflection · Grade 8</div>
+          <h1>How much agency is really here?</h1>
+          <p id="reflectionQuestion">“Students can choose how they present their learning, but I am not sure they are making decisions that actually shape the inquiry.”</p>
+        </div>
+        <div class="page-actions"><button class="btn btn-secondary btn-small" data-open-start>Add evidence</button><button class="btn btn-primary btn-small" id="saveNextTop">Save next step</button></div>
+      </div>
+      <div class="reflection-shell">
+        <div>
+          <div class="tabs" role="tablist">
+            <button class="tab active" data-tab="reflect">Reflection</button>
+            <button class="tab" data-tab="connected">Connected practice</button>
+            <button class="tab" data-tab="coach">AI coach</button>
+            <button class="tab" data-tab="adapt">Adapt this</button>
+          </div>
+
+          <div class="tab-panel active" id="tab-reflect">
+            <div class="summary-box">
+              <div class="kicker">AI reflection · demo</div>
+              <p>Your unit already gives students meaningful choice in how they communicate understanding. The clearest opportunity is to move some of that choice earlier — from selecting a product to making decisions that shape the question, pathway, or evidence they pursue.</p>
+            </div>
+
+            <div class="reflection-block">
+              <h3>What I notice</h3>
+              <div class="evidence-quote">“Students may demonstrate their final understanding through a podcast, public-information infographic, or prototype. All groups investigate the same teacher-selected sustainability question.”</div>
+              <div class="source-line"><span class="tag red">Evidence</span><span>Unit overview · final performance task</span></div>
+              <p style="margin:15px 0 0;color:#53677f">There is authentic choice in expression, but the intellectual direction of the inquiry remains largely teacher-defined. That distinction matters when thinking about agency: students are choosing <em>how</em> to communicate, but have fewer opportunities to influence <em>what</em> they investigate.</p>
+              <div class="connections"><span class="tag red">TLF · Agency 2.2</span><span class="tag red">Personalisation 1.4</span><span class="tag green">UDL · Choice & expression</span><span class="tag violet">Growth · 3c</span></div>
+            </div>
+
