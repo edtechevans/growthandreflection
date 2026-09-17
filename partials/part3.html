@@ -1,32 +1,45 @@
+                <div class="capture-panel" data-panel="audio" hidden>
+                  <div class="capture-heading"><p class="eyebrow">Voice reflection</p><h2>Capture the thought before it disappears.</h2><p>Speak naturally. A short reflection can be enough to start useful professional thinking.</p></div>
+                  <div class="voice-recorder">
+                    <button class="record-button" id="recordAudio"><span></span><strong>Start recording</strong></button>
+                    <div><strong id="audioStatus">Ready when you are.</strong><small>Or upload an existing audio note below.</small></div>
+                  </div>
+                  <audio id="audioPlayback" controls hidden></audio>
+                  <label class="inline-upload" for="audioInput">Upload audio<input id="audioInput" type="file" accept="audio/*"></label>
+                </div>
 
-            <div class="capture-panel" data-panel="audio" hidden>
-              <div class="panel-heading"><span class="panel-icon audio">●</span><div><h2>Voice note</h2><p>Speak naturally. A quick thought can be enough to start useful reflection.</p></div></div>
-              <div class="audio-recorder">
-                <button class="record-main" id="recordAudio"><span></span><strong>Start recording</strong></button>
-                <div class="record-status" id="audioStatus">Ready when you are.</div>
-                <audio id="audioPlayback" controls hidden></audio>
-                <label class="small-upload" for="audioInput">Or upload an audio file<input id="audioInput" type="file" accept="audio/*"></label>
+                <div class="capture-panel" data-panel="file" hidden>
+                  <div class="capture-heading"><p class="eyebrow">Unit, lesson or assessment</p><h2>Bring what you already use.</h2><p>The goal is reflection, not extra documentation.</p></div>
+                  <label class="upload-zone" for="documentInput"><span class="upload-mark">＋</span><strong>Choose a file</strong><small>PDF, DOCX, PPTX, image, TXT or Markdown</small><input id="documentInput" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.md,image/*"></label>
+                  <div class="document-preview" id="documentMeta" hidden><span class="doc-icon">▤</span><div><strong id="documentName"></strong><small id="documentSize"></small></div><button class="text-link" data-clear="file">Remove</button></div>
+                </div>
+
+                <div class="capture-panel" data-panel="write" hidden>
+                  <div class="capture-heading"><p class="eyebrow">Write or paste</p><h2>Start from the moment that stayed with you.</h2><p>A short note, learning activity or assessment is enough.</p></div>
+                  <textarea class="large-textarea" id="writtenEvidence" placeholder="What happened? What did students do? Paste a lesson or activity here, or simply write what you noticed."></textarea>
+                </div>
+
+                <div class="wondering-block">
+                  <div><p class="eyebrow">Step 2 · Optional</p><h2>What are you wondering about?</h2><p>Leave this blank for a broad AISG reflection.</p></div>
+                  <textarea id="focusQuestion" placeholder="e.g. I’m wondering whether students were really making meaningful decisions, or simply choosing between formats."></textarea>
+                  <div class="prompt-chips"><button data-prompt="What do you notice about student engagement and learning?">Engagement</button><button data-prompt="Where do students have meaningful agency and where could it deepen?">Agency</button><button data-prompt="How accessible is this learning while maintaining appropriate challenge?">Access + challenge</button><button data-prompt="What do you notice about student thinking and cognitive demand?">Student thinking</button><button data-prompt="What could I strengthen within Tier 1 before considering additional intervention?">Tier 1</button></div>
+                  <details class="advanced-lens"><summary>Optional focus lens <span id="lensSummary">AISG connected reflection</span></summary><div class="lens-options"><button class="lens-option is-selected" data-lens="AISG connected reflection">AISG connected reflection<small>Let relevant TLF, Growth, UDL, Tier 1 and goal connections emerge</small></button><button class="lens-option" data-lens="Transformative Learning Framework">TLF<small>Focus on learner experience</small></button><button class="lens-option" data-lens="UDL and inclusive Tier 1">UDL + Tier 1<small>Focus on variability, access and responsive core instruction</small></button><button class="lens-option" data-lens="Teacher Growth Continuum">Growth Continuum<small>Focus on evidence of evolving practice</small></button><button class="lens-option" data-lens="My Goal">My Goal<small>Explore the annual goal only where evidence supports it</small></button></div></details>
+                </div>
+
+                <div class="reflect-action-bar"><div><small>Demo mode · files remain in your browser</small><strong>Ready to reflect?</strong></div><button class="btn btn-primary btn-lg" id="analyseEvidence">Reflect with Demo AI <span>→</span></button></div>
               </div>
-            </div>
 
-            <div class="capture-panel" data-panel="file" hidden>
-              <div class="panel-heading"><span class="panel-icon file">▤</span><div><h2>Add a unit, lesson or resource</h2><p>Bring what you already use. The goal is reflection, not extra documentation.</p></div></div>
-              <label class="drop-zone" for="documentInput"><span class="big-upload">＋</span><strong>Choose a file</strong><small>PDF, DOCX, PPTX, image, TXT or Markdown</small><input id="documentInput" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.md,image/*"></label>
-              <div class="document-preview" id="documentMeta" hidden><span class="doc-icon">▤</span><div><strong id="documentName"></strong><small id="documentSize"></small></div><button class="text-button" data-clear="file">Remove</button></div>
-            </div>
+              <div id="analysisScreen" class="analysis-screen" hidden>
+                <div class="analysis-pulse" aria-hidden="true"></div>
+                <p class="eyebrow">Demo AI</p><h2>Looking for evidence before advice.</h2><p id="analysisMessage">Reading what you shared…</p><div class="analysis-track"><span></span></div>
+              </div>
 
-            <div class="capture-panel" data-panel="write" hidden>
-              <div class="panel-heading"><span class="panel-icon write">✎</span><div><h2>Write or paste something</h2><p>A short reflection, learning activity or assessment is enough.</p></div></div>
-              <textarea class="large-textarea" id="writtenEvidence" placeholder="What happened? What did students do? Paste a lesson or activity here, or simply write what you noticed."></textarea>
-            </div>
-          </div>
+              <div id="resultScreen" class="result-screen" hidden>
+                <div class="result-header"><button class="back-square" id="newReflection" aria-label="Start another reflection">←</button><div><p class="eyebrow">Reflection</p><h1 id="resultTitle">A useful place to look next.</h1></div><button class="icon-button" id="shareResult" aria-label="Copy reflection summary">↗</button></div>
 
-          <div class="workspace-card question-card">
-            <div class="workspace-top"><span class="step-chip">2 of 2 · Your question</span><span class="optional">Optional</span></div>
-            <label for="focusQuestion">What are you wondering about?</label>
-            <textarea id="focusQuestion" placeholder="Leave blank for a broad AISG reflection, or ask something specific…"></textarea>
-            <div class="prompt-row"><button class="prompt-chip" data-prompt="What do you notice about student engagement and learning?">Engagement</button><button class="prompt-chip" data-prompt="Where do students have meaningful agency and where could it deepen?">Agency</button><button class="prompt-chip" data-prompt="What could I strengthen within Tier 1 before considering additional intervention?">Tier 1</button><button class="prompt-chip" data-prompt="How accessible is this learning while maintaining appropriate challenge?">Access + challenge</button></div>
-            <details class="lens-details"><summary>Reflection lens <span id="lensSummary">AISG connected reflection</span></summary><div class="lens-options"><button class="lens-option is-selected" data-lens="AISG connected reflection">AISG connected reflection<small>Use relevant TLF, Growth, UDL and Tier 1 connections</small></button><button class="lens-option" data-lens="Transformative Learning Framework">TLF<small>Focus on student learning experience</small></button><button class="lens-option" data-lens="UDL and inclusive Tier 1">UDL + Tier 1<small>Focus on variability, access and responsive core instruction</small></button><button class="lens-option" data-lens="Teacher Growth Continuum">Growth Continuum<small>Connect evidence to professional reflection</small></button></div></details>
-          </div>
-
-          <div class="sticky-action"><div><small>Your evidence stays in this browser in demo mode.</small><strong>Ready to reflect?</strong></div><button class="primary-action" id="analyseEvidence">Reflect with Demo AI <span>→</span></button></div>
+                <div class="result-columns">
+                  <div class="result-primary">
+                    <section class="reflection-section">
+                      <p class="result-label">What I notice</p><h2 id="noticeTitle"></h2><p id="noticeBody"></p>
+                    </section>
+                    <section class="evidence-panel"><div><span>Evidence from your practice</span><strong id="evidenceLabel">Classroom video</strong></div><p id="evidenceBox"></p><small id="evidenceDetail">Demo evidence</small></section>
