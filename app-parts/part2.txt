@@ -31,19 +31,44 @@
   $$('[data-mode]').forEach(b=>b.addEventListener('click',()=>openMode(b.dataset.mode)));
   $$('[data-demo-result]').forEach(b=>b.addEventListener('click',()=>{navigate('reflect');activeMode=b.dataset.demoResult;captureChooser.hidden=true;captureWorkspace.hidden=true;analysisScreen.hidden=true;renderResult(activeMode)}));
 
+  function setActionBarForMode(mode){
+    const wondering=$('.wondering-block'), button=$('#analyseEvidence'), bar=$('.reflect-action-bar');
+    if(wondering) wondering.hidden=mode==='observation';
+    if(!button||!bar)return;
+    const small=bar.querySelector('small'), strong=bar.querySelector('strong');
+    if(mode==='observation'){
+      button.innerHTML='Create 2 Commendations + 1 Wondering <span>→</span>';
+      if(small)small.textContent='Demo mode · notes remain in your browser';
+      if(strong)strong.textContent='Ready for focused TLF feedback?';
+    }else{
+      button.innerHTML='Reflect with Demo AI <span>→</span>';
+      if(small)small.textContent='Demo mode · files remain in your browser';
+      if(strong)strong.textContent='Ready to reflect?';
+    }
+  }
+
   function openMode(mode){
     $('#view-reflect').classList.remove('showing-result');
+    resultScreen.classList.remove('observation-mode');
     activeMode=mode;captureChooser.hidden=true;captureWorkspace.hidden=false;analysisScreen.hidden=true;resultScreen.hidden=true;
     $$('.capture-panel').forEach(p=>p.hidden=p.dataset.panel!==mode);
-    const labels={video:'Classroom video',audio:'Voice reflection',file:'Unit / lesson / assessment',write:'Written reflection'};
-    $('#evidenceModeLabel').textContent=labels[mode];focusQuestion.value='';
+    const labels={video:'Classroom video',audio:'Voice reflection',file:'Unit / lesson / assessment',write:'Written reflection',observation:'Classroom Observation Notes'};
+    $('#evidenceModeLabel').textContent=labels[mode]||'Evidence';focusQuestion.value='';
+    setActionBarForMode(mode);
     if(mode==='audio')setTimeout(()=>$('#recordAudio').focus(),60);
+    if(mode==='observation')setTimeout(()=>$('#observationNotes').focus(),60);
     window.scrollTo({top:0,behavior:'smooth'});
   }
   function resetReflect(){
     $('#view-reflect').classList.remove('showing-result');
+    resultScreen.classList.remove('observation-mode');
     activeMode=null;captureChooser.hidden=false;captureWorkspace.hidden=true;analysisScreen.hidden=true;resultScreen.hidden=true;
     $$('.capture-panel').forEach(p=>p.hidden=true);focusQuestion.value='';$$('.focus-chip,.prompt-chips button').forEach(c=>c.classList.remove('is-selected'));
+    const observationNotes=$('#observationNotes'), observationFile=$('#observationTextFile'), observationStatus=$('#observationFileStatus');
+    if(observationNotes)observationNotes.value='';
+    if(observationFile)observationFile.value='';
+    if(observationStatus)observationStatus.textContent='Or paste notes directly above.';
+    setActionBarForMode(null);
   }
   $('#changeMode').addEventListener('click',resetReflect);$('#newReflection').addEventListener('click',resetReflect);
 
@@ -55,5 +80,7 @@
   function handleVideo(file){if(!file)return;if(videoUrl)URL.revokeObjectURL(videoUrl);videoUrl=URL.createObjectURL(file);$('#videoPreview').src=videoUrl;$('#videoName').textContent=file.name;$('#videoSize').textContent=formatBytes(file.size);$('#videoMeta').hidden=false}
   $('#audioInput').addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;if(audioUrl)URL.revokeObjectURL(audioUrl);audioUrl=URL.createObjectURL(file);const audio=$('#audioPlayback');audio.src=audioUrl;audio.hidden=false;$('#audioStatus').textContent=`Ready · ${file.name}`});
   $('#documentInput').addEventListener('change',e=>{selectedFile=e.target.files[0];if(!selectedFile)return;$('#documentName').textContent=selectedFile.name;$('#documentSize').textContent=formatBytes(selectedFile.size);$('#documentMeta').hidden=false});
+  const observationTextFile=$('#observationTextFile');
+  if(observationTextFile)observationTextFile.addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;const status=$('#observationFileStatus');status.textContent=`Reading ${file.name}…`;const reader=new FileReader();reader.onload=()=>{$('#observationNotes').value=String(reader.result||'').trim();status.textContent=`Loaded · ${file.name}`;};reader.onerror=()=>{status.textContent='Could not read that text file. Paste the notes instead.';};reader.readAsText(file)});
   $$('[data-clear]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.clear==='video'){$('#videoInput').value='';$('#videoMeta').hidden=true;if(videoUrl)URL.revokeObjectURL(videoUrl);videoUrl=null}if(b.dataset.clear==='file'){$('#documentInput').value='';$('#documentMeta').hidden=true;selectedFile=null}}));
 
