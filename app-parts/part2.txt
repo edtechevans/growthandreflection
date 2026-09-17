@@ -1,91 +1,59 @@
-      nextTitle: 'Move one meaningful decision earlier.',
-      nextBody: 'Keep the learning goal and success criteria common, but let students select or refine an authentic problem or inquiry question from a bounded set of options.',
-      watch: 'Look for whether students can explain the decision they made, why it matters, and how it changed the direction of their learning.'
+      nextBody:'Keep the learning goal and success criteria common, but let students select or refine an authentic problem or inquiry question from a bounded set of options.',
+      watch:'Look for whether students can explain the decision they made, why it matters, and how it changed the direction of their learning.',
+      goal:'This connects directly to your annual Agency goal because the evidence distinguishes product choice from decisions that shape the learning itself.'
     },
-    write: {
-      title: 'Start with what the evidence can actually tell you.',
-      noticeTitle: 'There is enough here to form a useful question, but not enough to make a broad judgement.',
-      noticeBody: 'Your note describes a specific moment. The strongest use of it is to identify a pattern worth watching, connect it cautiously to AISG language, and collect one more piece of evidence.',
-      evidence: 'Written reflection · A teacher-authored note about student experience and an instructional decision.',
-      connectionTitle: 'Evidence and reflection come before conclusions.',
-      connectionBody: 'AISG’s Teacher Growth & Reflection Framework emphasizes multiple sources of evidence, ongoing reflection and attention to student experience. The next step is therefore not a score or label, but a sharper question and a plan for what to notice next.',
-      chips: ['Growth · Evidence & Reflection','TLF · Engagement for All','Tier 1 · Responsive planning'],
-      grounding: 'AISG’s Teacher Growth framework says growth occurs through cycles of action, feedback and reflection and is grounded in observable student experience. No single source of evidence defines teacher practice.',
-      wondering: 'What would you need to see or hear from students next time to know whether this is a one-off moment or a meaningful pattern?',
-      nextTitle: 'Choose one observable thing to collect next.',
-      nextBody: 'Name a single piece of student evidence — a response, work sample, participation pattern or brief student voice prompt — and collect it during the next learning engagement.',
-      watch: 'Look for consistency across more than one student, moment or context before deciding what the evidence suggests.'
+    write:{
+      title:'Start with what the evidence can actually tell you.',
+      noticeTitle:'There is enough here to form a useful question, but not enough to make a broad judgement.',
+      noticeBody:'Your note describes a specific moment. The strongest use of it is to identify a pattern worth watching, connect it cautiously to AISG language, and collect one more piece of evidence.',
+      evidence:'Written reflection · A teacher-authored note about student experience and an instructional decision.',
+      connectionTitle:'Evidence and reflection come before conclusions.',
+      connectionBody:'AISG’s Teacher Growth & Reflection Framework emphasizes multiple sources of evidence, ongoing reflection and attention to student experience. The next step is therefore not a score or label, but a sharper question and a plan for what to notice next.',
+      chips:['Growth · Evidence & Reflection','TLF · Engagement for All','Tier 1 · Responsive planning'],
+      grounding:'AISG’s Teacher Growth framework says growth occurs through cycles of action, feedback and reflection and is grounded in observable student experience. No single source of evidence defines teacher practice.',
+      wondering:'What would you need to see or hear from students next time to know whether this is a one-off moment or a meaningful pattern?',
+      nextTitle:'Choose one observable thing to collect next.',
+      nextBody:'Name a single piece of student evidence — a response, work sample, participation pattern or brief student voice prompt — and collect it during the next learning engagement.',
+      watch:'Look for consistency across more than one student, moment or context before deciding what the evidence suggests.',
+      goal:'Your goal remains available as context, but this reflection should stay broad until the evidence reveals a meaningful connection.'
     }
   };
 
   function navigate(name){
-    views.forEach(v => v.classList.toggle('is-active', v.id === `view-${name}`));
-    bottomButtons.forEach(b => b.classList.toggle('is-active', b.dataset.nav === name));
-    window.scrollTo({top:0, behavior:'smooth'});
-    if(name === 'reflect' && !activeMode && resultScreen.hidden) resetReflect();
+    views.forEach(v=>v.classList.toggle('is-active',v.id===`view-${name}`));
+    desktopNav.forEach(b=>b.classList.toggle('is-active',b.dataset.nav===name));
+    mobileNav.forEach(b=>b.classList.toggle('is-active',b.dataset.nav===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(name==='reflect'&&!activeMode&&resultScreen.hidden) resetReflect();
   }
-
-  navButtons.forEach(b => b.addEventListener('click', () => navigate(b.dataset.nav)));
-  $$('[data-start]').forEach(b => b.addEventListener('click', () => { navigate('reflect'); openMode(b.dataset.start); }));
-  $$('[data-mode]').forEach(b => b.addEventListener('click', () => openMode(b.dataset.mode)));
-  $('#changeMode').addEventListener('click', resetReflect);
-  $('#newReflection').addEventListener('click', resetReflect);
+  $$('[data-nav]').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.nav)));
+  $$('[data-start]').forEach(b=>b.addEventListener('click',()=>{navigate('reflect');openMode(b.dataset.start)}));
+  $$('[data-mode]').forEach(b=>b.addEventListener('click',()=>openMode(b.dataset.mode)));
+  $$('[data-demo-result]').forEach(b=>b.addEventListener('click',()=>{navigate('reflect');activeMode=b.dataset.demoResult;captureChooser.hidden=true;captureWorkspace.hidden=true;analysisScreen.hidden=true;renderResult(activeMode)}));
 
   function openMode(mode){
-    activeMode = mode;
-    captureChooser.hidden = true;
-    captureWorkspace.hidden = false;
-    analysisScreen.hidden = true;
-    resultScreen.hidden = true;
-    $$('.capture-panel').forEach(p => p.hidden = p.dataset.panel !== mode);
-    focusQuestion.value = '';
-    if(mode === 'audio') setTimeout(() => $('#recordAudio').focus(), 50);
-    window.scrollTo({top:0, behavior:'smooth'});
+    $('#view-reflect').classList.remove('showing-result');
+    activeMode=mode;captureChooser.hidden=true;captureWorkspace.hidden=false;analysisScreen.hidden=true;resultScreen.hidden=true;
+    $$('.capture-panel').forEach(p=>p.hidden=p.dataset.panel!==mode);
+    const labels={video:'Classroom video',audio:'Voice reflection',file:'Unit / lesson / assessment',write:'Written reflection'};
+    $('#evidenceModeLabel').textContent=labels[mode];focusQuestion.value='';
+    if(mode==='audio')setTimeout(()=>$('#recordAudio').focus(),60);
+    window.scrollTo({top:0,behavior:'smooth'});
   }
-
   function resetReflect(){
-    activeMode = null;
-    captureChooser.hidden = false;
-    captureWorkspace.hidden = true;
-    analysisScreen.hidden = true;
-    resultScreen.hidden = true;
-    $$('.capture-panel').forEach(p => p.hidden = true);
-    focusQuestion.value = '';
-    $$('.focus-chip,.prompt-chip').forEach(c => c.classList.remove('is-selected'));
+    $('#view-reflect').classList.remove('showing-result');
+    activeMode=null;captureChooser.hidden=false;captureWorkspace.hidden=true;analysisScreen.hidden=true;resultScreen.hidden=true;
+    $$('.capture-panel').forEach(p=>p.hidden=true);focusQuestion.value='';$$('.focus-chip,.prompt-chips button').forEach(c=>c.classList.remove('is-selected'));
   }
+  $('#changeMode').addEventListener('click',resetReflect);$('#newReflection').addEventListener('click',resetReflect);
 
-  $$('.focus-chip').forEach(chip => chip.addEventListener('click', () => {
-    chip.classList.toggle('is-selected');
-    const selected = $$('.focus-chip.is-selected').map(c => c.dataset.focus);
-    focusQuestion.value = selected.length ? `Please pay particular attention to ${selected.join('; ')}.` : '';
-  }));
-  $$('.prompt-chip').forEach(chip => chip.addEventListener('click', () => {
-    $$('.prompt-chip').forEach(c => c.classList.remove('is-selected'));
-    chip.classList.add('is-selected'); focusQuestion.value = chip.dataset.prompt;
-  }));
-  $$('.lens-option').forEach(btn => btn.addEventListener('click', () => {
-    $$('.lens-option').forEach(b => b.classList.remove('is-selected'));
-    btn.classList.add('is-selected'); selectedLens = btn.dataset.lens; lensSummary.textContent = selectedLens;
-  }));
+  $$('.focus-chip').forEach(chip=>chip.addEventListener('click',()=>{chip.classList.toggle('is-selected');const selected=$$('.focus-chip.is-selected').map(c=>c.dataset.focus);focusQuestion.value=selected.length?`Please pay particular attention to ${selected.join('; ')}.`:''}));
+  $$('.prompt-chips button').forEach(chip=>chip.addEventListener('click',()=>{$$('.prompt-chips button').forEach(c=>c.classList.remove('is-selected'));chip.classList.add('is-selected');focusQuestion.value=chip.dataset.prompt}));
+  $$('.lens-option').forEach(btn=>btn.addEventListener('click',()=>{$$('.lens-option').forEach(b=>b.classList.remove('is-selected'));btn.classList.add('is-selected');selectedLens=btn.dataset.lens;lensSummary.textContent=selectedLens}));
 
-  $('#videoInput').addEventListener('change', e => handleVideo(e.target.files[0]));
-  function handleVideo(file){
-    if(!file) return; if(videoUrl) URL.revokeObjectURL(videoUrl); videoUrl = URL.createObjectURL(file);
-    $('#videoPreview').src = videoUrl; $('#videoName').textContent = file.name; $('#videoSize').textContent = formatBytes(file.size); $('#videoMeta').hidden = false;
-  }
-  $('#audioInput').addEventListener('change', e => {
-    const file=e.target.files[0]; if(!file)return; if(audioUrl) URL.revokeObjectURL(audioUrl); audioUrl=URL.createObjectURL(file); const audio=$('#audioPlayback'); audio.src=audioUrl; audio.hidden=false; $('#audioStatus').textContent=`Ready · ${file.name}`;
-  });
-  $('#documentInput').addEventListener('change', e => {
-    selectedFile=e.target.files[0]; if(!selectedFile)return; $('#documentName').textContent=selectedFile.name; $('#documentSize').textContent=formatBytes(selectedFile.size); $('#documentMeta').hidden=false;
-  });
-  $$('[data-clear]').forEach(b=>b.addEventListener('click',()=>{
-    if(b.dataset.clear==='video'){ $('#videoInput').value=''; $('#videoMeta').hidden=true; if(videoUrl)URL.revokeObjectURL(videoUrl); videoUrl=null; }
-    if(b.dataset.clear==='file'){ $('#documentInput').value=''; $('#documentMeta').hidden=true; selectedFile=null; }
-  }));
+  $('#videoInput').addEventListener('change',e=>handleVideo(e.target.files[0]));
+  function handleVideo(file){if(!file)return;if(videoUrl)URL.revokeObjectURL(videoUrl);videoUrl=URL.createObjectURL(file);$('#videoPreview').src=videoUrl;$('#videoName').textContent=file.name;$('#videoSize').textContent=formatBytes(file.size);$('#videoMeta').hidden=false}
+  $('#audioInput').addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;if(audioUrl)URL.revokeObjectURL(audioUrl);audioUrl=URL.createObjectURL(file);const audio=$('#audioPlayback');audio.src=audioUrl;audio.hidden=false;$('#audioStatus').textContent=`Ready · ${file.name}`});
+  $('#documentInput').addEventListener('change',e=>{selectedFile=e.target.files[0];if(!selectedFile)return;$('#documentName').textContent=selectedFile.name;$('#documentSize').textContent=formatBytes(selectedFile.size);$('#documentMeta').hidden=false});
+  $$('[data-clear]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.clear==='video'){$('#videoInput').value='';$('#videoMeta').hidden=true;if(videoUrl)URL.revokeObjectURL(videoUrl);videoUrl=null}if(b.dataset.clear==='file'){$('#documentInput').value='';$('#documentMeta').hidden=true;selectedFile=null}}));
 
-  $('#recordAudio').addEventListener('click', async () => {
-    const btn=$('#recordAudio'), status=$('#audioStatus');
-    if(recorder && recorder.state==='recording'){ recorder.stop(); btn.classList.remove('is-recording'); btn.querySelector('strong').textContent='Start recording'; status.textContent='Processing recording…'; return; }
-    try{
-      const stream=await navigator.mediaDevices.getUserMedia({audio:true}); audioChunks=[]; recorder=new MediaRecorder(stream);
