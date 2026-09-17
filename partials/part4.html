@@ -1,68 +1,30 @@
-y</span></div>
-          <div class="source-row"><b>Teacher Growth & Reflection Framework (2026–27)</b><span>Professional growth continuum</span><span class="tag red">Primary</span></div>
-          <div class="source-row"><b>WASC Action Plan — Being</b><span>Strategic actions / TLF implementation</span><span class="tag red">Primary</span></div>
-          <div class="source-row"><b>Leading the Conditions for Engagement for All</b><span>AISG MTSS / Tier 1 direction</span><span class="tag red">Primary</span></div>
-          <div class="source-row"><b>CAST UDL Guidelines 3.0</b><span>Authoritative UDL research lens</span><span class="tag green">External</span></div>
-          <div class="source-row"><b>MTSS Center — Essential Components</b><span>Authoritative MTSS research lens</span><span class="tag gold">External</span></div>
         </div>
-      </div>
-    </section>
 
-    <section class="view" id="view-growth">
-      <div class="page-head"><div><div class="eyebrow">My growth</div><h1>See the thread, not a score.</h1><p>Connect evidence and experiments to a professional goal over time. The purpose is to make growth visible through reflection and student evidence — not to turn practice into a dashboard rating.</p></div><button class="btn btn-primary" data-open-start>Add a reflection</button></div>
-      <div class="growth-grid">
-        <aside class="goal-card"><div class="goal-chip">Professional goal · 2026–27</div><h3>Strengthen student agency through meaningful choice and reflection.</h3><p>I want students to make more consequential decisions about their learning while maintaining clarity, appropriate challenge, and inclusive access.</p><div class="goal-evidence"><div class="small" style="color:#aebfd0;text-transform:uppercase;letter-spacing:.08em;font-weight:800">Evidence I’m watching for</div><p style="margin:8px 0 0">Students can explain the choices they make, why they matter, and how those choices affect their learning.</p></div><div class="connections" style="margin-top:17px"><span class="tag">TLF · Agency</span><span class="tag">Growth · 3c</span><span class="tag">Growth · 4c</span></div></aside>
-        <div>
-          <div class="timeline">
-            <div class="time-item"><div class="time-date">Today</div><h3>Moved one meaningful decision earlier</h3><p>Saved next step from the Sustainable Futures unit reflection.</p><div class="connections"><span class="tag red">Next step</span><span class="tag">Agency</span></div></div>
-            <div class="time-item"><div class="time-date">September 16</div><h3>Group work felt teacher-dependent</h3><p>Voice reflection after noticing students repeatedly sought permission before making routine decisions.</p><div class="connections"><span class="tag green">Voice reflection</span><span class="tag violet">2c · Routines & autonomy</span></div></div>
-            <div class="time-item"><div class="time-date">September 12</div><h3>Choice board added to unit</h3><p>Three final-product options increased flexibility, but the reflection raised a new question: is product choice the same as agency?</p><div class="connections"><span class="tag red">TLF · Personalisation</span><span class="tag green">UDL</span></div></div>
-            <div class="time-item"><div class="time-date">August 28</div><h3>Initial goal reflection</h3><p>Identified student ownership as a focus after reviewing student voice and classroom observation notes.</p><div class="connections"><span class="tag navy">Evidence</span><span class="tag violet">Growth goal</span></div></div>
-          </div>
+        <div id="analysisScreen" class="analysis-screen" hidden>
+          <div class="analysis-orb"></div><p class="eyebrow">Demo AI</p><h2>Looking for evidence before advice.</h2><p id="analysisMessage">Reading what you shared…</p><div class="analysis-progress"><span></span></div>
         </div>
-      </div>
-    </section>
 
-    <section class="view" id="view-voice">
-      <div class="page-head"><div><div class="eyebrow">Voice reflection</div><h1>Capture the thought before it disappears.</h1><p>A quick reflection after a lesson can become evidence for deeper professional thinking. In this prototype the recording is simulated; the production version would transcribe securely and connect the reflection to relevant source material.</p></div></div>
-      <div class="voice-layout">
-        <div class="recorder">
-          <span class="tag red">Demo recording</span>
-          <div class="record-ring"><button class="record-button" id="recordBtn" aria-label="Start demo recording">●</button></div>
-          <h3 id="recordState">Ready when you are.</h3>
-          <div class="wave" id="wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          <p class="subtle" id="recordHint">Press record and speak naturally. No need to structure it.</p>
-          <div class="transcript" id="transcript" hidden><div class="source-line"><span class="tag green">Transcript</span><span>Editable before reflection</span></div><textarea id="transcriptText">The lesson went well overall, but during group work I noticed students kept coming back to me for permission before making decisions. They were collaborating, but I wonder if I had actually created enough space for them to take ownership.</textarea><button class="btn btn-primary btn-small" id="reflectVoice">Reflect with Demo AI</button></div>
+        <div id="resultScreen" class="result-screen" hidden>
+          <div class="result-top"><button class="back-button" id="newReflection" aria-label="Start another reflection">←</button><div><p class="eyebrow">Reflection</p><h1 id="resultTitle">A useful place to look next.</h1></div><button class="icon-button" id="shareResult" aria-label="Copy reflection summary">↗</button></div>
+          <div class="evidence-pill" id="evidencePill"><span>Evidence</span><strong id="evidenceLabel">Classroom video</strong><small id="evidenceDetail">Demo evidence</small></div>
+
+          <article class="result-card notice-card"><p class="result-label">What I notice</p><h2 id="noticeTitle"></h2><p id="noticeBody"></p><div class="evidence-box" id="evidenceBox"></div></article>
+
+          <article class="result-card aisg-card"><p class="result-label">Why this matters at AISG</p><h2 id="connectionTitle"></h2><p id="connectionBody"></p><div class="framework-chips" id="frameworkChips"></div><details><summary>See the grounding</summary><div class="grounding-copy" id="groundingCopy"></div></details></article>
+
+          <article class="result-card question-result"><p class="result-label">A question worth sitting with</p><blockquote id="wonderingResult"></blockquote></article>
+
+          <article class="result-card next-card"><p class="result-label">One small next move</p><h2 id="nextTitle"></h2><p id="nextBody"></p><button class="secondary-action" id="saveGrowth">Save to My Growth</button></article>
+
+          <article class="result-card watch-card"><p class="result-label">What to notice next time</p><p id="watchBody"></p></article>
+
+          <div class="coach-box"><div><p class="eyebrow">Keep thinking</p><h2>Ask a follow-up.</h2></div><div class="coach-messages" id="coachMessages"></div><div class="coach-input"><input id="coachInput" placeholder="Why did you make that connection?"><button id="coachSend">Send</button></div><div class="coach-suggestions"><button data-coach="Why did you connect this to the TLF?">Why this TLF link?</button><button data-coach="Give me another practical option to try.">Another option</button><button data-coach="How could I keep the challenge high while improving access?">Access + challenge</button></div></div>
         </div>
-        <aside class="ai-preview">
-          <div class="eyebrow">What the AI could notice</div><h3 style="font-size:27px;margin-top:10px">From voice note to reflective question.</h3>
-          <p class="subtle">When the transcript is available, the platform can retrieve the most relevant framework connections and help you interrogate the moment.</p>
-          <div class="preview-card"><b>Possible TLF connection</b><span class="small subtle">Agency · autonomy-supportive relationships</span></div>
-          <div class="preview-card"><b>Growth Continuum</b><span class="small subtle">2c · Routines that Support Equity & Autonomy</span></div>
-          <div class="preview-card"><b>A useful wondering</b><span class="small subtle">Which decisions could students reasonably make without checking with you first?</span></div>
-        </aside>
-      </div>
-    </section>
+      </section>
 
-    <section class="view" id="view-video">
-      <div class="page-head"><div><div class="eyebrow">Classroom video reflection</div><h1>Look again — with evidence linked to the moment.</h1><p>Video should support teacher reflection, not surveillance. This demo shows how a timestamped transcript could anchor observations and framework connections once secure multimedia processing is added.</p></div><div class="page-actions"><span class="tag red">Demo video</span><span class="tag">Private</span></div></div>
-      <div class="video-layout">
-        <div>
-          <div class="video-upload-card">
-            <div class="video-upload-grid">
-              <div class="video-upload-copy">
-                <div class="kicker">Bring classroom evidence</div>
-                <h3>Upload a classroom recording</h3>
-                <p>Add a video recorded during a lesson so the future AI can transcribe it, connect observations to specific moments, and support reflection through AISG's frameworks.</p>
-                <div class="video-file-meta" id="videoFileMeta" hidden><div><div class="video-file-name" id="videoFileName">Classroom video</div><div class="small subtle">Ready for local preview</div></div><div class="video-file-size" id="videoFileSize"></div></div>
-              </div>
-              <div class="video-drop" id="videoDrop">
-                <input type="file" id="classVideoInput" accept="video/*,.mp4,.mov,.m4v,.webm" aria-label="Upload classroom video">
-                <div class="video-upload-icon">↑</div>
-                <strong>Choose a video</strong>
-                <span class="small subtle">MP4, MOV or WebM · or drag here</span>
-              </div>
-            </div>
-          </div>
-          <div class="video-player" id="videoPlayer"><div class="classroom-illustration"><div class="desk"></div><div class="desk"></div><div class="desk"></div><div class="desk"></div><div class="desk"></div><div class="desk"></div><div class="desk"></div><div class="desk"></div></div><div class="play">▶</div><div class="video-time">12:34 / 18:42</div><video id="classVideoPreview" controls playsinline hidden></video></div>
-          <div class="video
+      <section class="view" id="view-growth" aria-labelledby="growth-title">
+        <div class="page-heading"><p class="eyebrow">My growth</p><h1 id="growth-title">See the thread, not a score.</h1><p>Connect reflections, evidence and experiments to a professional goal over time.</p></div>
+        <article class="goal-card"><div class="goal-label">Professional goal · 2026–27</div><h2>Strengthen student agency through meaningful choice and reflection.</h2><p>I want students to make more consequential decisions about their learning while maintaining clarity, appropriate challenge and inclusive access.</p><div class="goal-watch"><strong>Evidence I am watching for</strong><span>Students can explain the choices they make, why they matter, and how those choices affect their learning.</span></div><div class="framework-chips"><span>TLF · Agency</span><span>Growth · 3c</span><span>Growth · 4c</span></div></article>
+        <div class="timeline" id="growthTimeline">
+          <article><time>Today</time><span class="timeline-dot"></span><div><strong>Moved one meaningful decision earlier</strong><p>Saved from the Sustainable Futures reflection.</p><small>Agency · next step</small></div></article>
+          <article><time>Sep 16</time><span class="timeline-dot"></span><div><strong>Group work felt teacher-dependent</strong><p>Voice reflection after students repeatedly sought permission.</p><small>Growth 2c · autonomy</small></div></article>
