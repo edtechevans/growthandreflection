@@ -1,46 +1,72 @@
   <div class="app-shell">
-    <header class="app-header">
+    <header class="app-header web-header">
       <button class="brand-button" data-nav="home" aria-label="Go to home">
         <img id="aisgLogo" class="aisg-logo" alt="American International School of Guangzhou">
         <span class="brand-text"><strong>AISG Reflect</strong><small>Think deeply. Grow deliberately.</small></span>
       </button>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <button class="is-active" data-nav="home">Home</button>
+        <button data-nav="reflect">Reflect</button>
+        <button data-nav="goal">My Goal</button>
+        <button data-nav="growth">My Growth</button>
+        <button data-nav="sources">Sources</button>
+      </nav>
+
       <div class="header-actions">
         <span class="demo-badge" title="AI responses are simulated in this prototype"><span></span>Demo AI</span>
         <button class="avatar" aria-label="Profile">TE</button>
       </div>
     </header>
 
-    <main class="app-main">
+    <main class="app-main web-main">
       <section class="view is-active" id="view-home" aria-labelledby="home-title">
-        <div class="welcome-block">
-          <p class="eyebrow">Professional reflection</p>
-          <h1 id="home-title">What do you want to reflect on?</h1>
-          <p class="intro">Capture something from your practice in seconds. AISG Reflect helps you notice evidence, connect it to AISG beliefs, and decide what you might try next.</p>
-        </div>
+        <section class="website-hero">
+          <div class="hero-copy-web">
+            <p class="eyebrow">AI-supported professional reflection</p>
+            <h1 id="home-title">Bring evidence. Reflect. Decide what to try next.</h1>
+            <p class="intro">Upload something from your practice — a classroom video, voice note, unit, lesson, assessment or reflection. AISG Reflect helps you notice evidence, connect it to AISG beliefs, and make one useful next move.</p>
+            <div class="hero-actions-web">
+              <button class="hero-primary" data-nav="reflect">Start a Reflection <span>→</span></button>
+              <button class="hero-secondary" data-start="file">Upload Evidence</button>
+            </div>
+            <div class="hero-proof"><span>Video</span><i></i><span>Voice</span><i></i><span>PDF / Word / Slides</span><i></i><span>Quick notes</span></div>
+          </div>
 
-        <section class="quick-capture" aria-label="Quick reflection options">
-          <button class="capture-card capture-video" data-start="video">
-            <span class="capture-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h8A2.5 2.5 0 0 1 17 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-8A2.5 2.5 0 0 1 4 17.5z"/><path d="m17 9 4-2v10l-4-2z"/></svg>
-            </span>
-            <span class="capture-copy"><strong>Record or upload a class</strong><small>Use video to revisit what actually happened.</small></span>
-            <span class="capture-arrow">→</span>
-          </button>
-          <div class="capture-row">
-            <button class="capture-card compact capture-audio" data-start="audio">
-              <span class="capture-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></svg></span>
-              <span class="capture-copy"><strong>Voice note</strong><small>Say what is on your mind.</small></span>
+          <aside class="goal-summary-card">
+            <div class="goal-summary-top"><span class="goal-kicker">My Goal · 2026–27</span><span class="sync-chip">Growth & Reflection</span></div>
+            <h2>Strengthen student agency through meaningful choice and reflection.</h2>
+            <p>I want students to make more consequential decisions about their learning while maintaining clarity, appropriate challenge and inclusive access.</p>
+            <div class="goal-alignment-grid">
+              <div><small>TLF Facet</small><strong>Agency</strong></div>
+              <div><small>Growth Domain</small><strong>3c · Choice, Inquiry & Creativity</strong></div>
+            </div>
+            <div class="goal-evidence-mini"><small>Evidence I am watching for</small><span>Students can explain the choices they make, why they matter, and how those choices affect their learning.</span></div>
+            <button class="goal-link" data-nav="goal">View My Goal <span>→</span></button>
+          </aside>
+        </section>
+
+        <section class="web-quick-section" aria-label="Quick reflection options">
+          <div class="section-title-row web-section-heading"><div><p class="eyebrow">Start with what you have</p><h2>Reflection begins with evidence.</h2></div><p class="section-support">Choose the fastest route. You can refine the question afterwards.</p></div>
+          <div class="web-action-grid">
+            <button class="web-action-card video-action" data-start="video">
+              <span class="capture-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h8A2.5 2.5 0 0 1 17 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-8A2.5 2.5 0 0 1 4 17.5z"/><path d="m17 9 4-2v10l-4-2z"/></svg></span>
+              <span><strong>Classroom video</strong><small>Record or upload a lesson and revisit what actually happened.</small></span><b>→</b>
             </button>
-            <button class="capture-card compact capture-file" data-start="file">
+            <button class="web-action-card audio-action" data-start="audio">
+              <span class="capture-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></svg></span>
+              <span><strong>Voice reflection</strong><small>Capture a thought quickly before the moment disappears.</small></span><b>→</b>
+            </button>
+            <button class="web-action-card file-action" data-start="file">
               <span class="capture-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2.5h8l4 4V21H6z"/><path d="M14 2.5v5h4M9 12h6M9 16h6"/></svg></span>
-              <span class="capture-copy"><strong>Add a file</strong><small>Unit, lesson, PDF or slides.</small></span>
+              <span><strong>Unit, lesson or assessment</strong><small>Upload a PDF, document, slide deck, image or other resource.</small></span><b>→</b>
             </button>
           </div>
-          <button class="write-link" data-start="write"><span aria-hidden="true">＋</span> Write or paste a quick reflection</button>
+          <button class="write-link web-write" data-start="write"><span aria-hidden="true">＋</span> Or write / paste a quick reflection</button>
         </section>
 
         <section class="trust-strip" aria-label="Reflection principles">
-          <span>Private by default</span><i></i><span>Evidence before interpretation</span><i></i><span>No teacher score</span>
+          <span>Private by default</span><i></i><span>Evidence before interpretation</span><i></i><span>Goal-aware, not goal-forced</span><i></i><span>No teacher score</span>
         </section>
 
         <section class="home-section">
