@@ -1,37 +1,69 @@
-              <span class="recent-icon file">▤</span>
-              <span class="recent-copy"><strong>Sustainable Futures unit</strong><small>Is product choice the same as agency?</small><span class="recent-tags">Agency · UDL · Tier 1</span></span>
-              <time>Sep 14</time>
-            </button>
-          </div>
-        </section>
+                <span class="recent-main"><strong>Group work felt teacher-dependent</strong><small>Students kept coming back for permission.</small></span>
+                <span class="recent-framework">Agency · Growth 2c</span>
+                <time>Yesterday</time>
+                <span class="row-arrow">→</span>
+              </button>
+              <button class="recent-row" role="listitem" data-demo-result="file">
+                <span class="recent-type file">Unit</span>
+                <span class="recent-main"><strong>Sustainable Futures</strong><small>Is product choice the same as agency?</small></span>
+                <span class="recent-framework">Agency · UDL · Tier 1</span>
+                <time>Sep 14</time>
+                <span class="row-arrow">→</span>
+              </button>
+            </div>
+          </section>
 
-        <section class="belief-card">
-          <div class="belief-mark">AISG</div>
-          <div><p class="eyebrow">Grounded in our shared beliefs</p><h2>Reflection should stay close to student experience.</h2><p>Feedback is framed around what students are saying, doing, producing and experiencing — then connected to the TLF, Teacher Growth Continuum, UDL and strong inclusive Tier 1.</p><button class="text-button light" data-nav="sources">See what grounds the AI →</button></div>
+          <aside class="home-side">
+            <section class="next-step-panel">
+              <p class="eyebrow">One small next move</p>
+              <h3>Move one meaningful decision earlier.</h3>
+              <p>Keep the learning goal common, but let students shape one consequential part of the inquiry.</p>
+              <button class="text-link" data-demo-result="file">Return to this reflection →</button>
+            </section>
+            <section class="principle-panel">
+              <p class="eyebrow">How the AI should work</p>
+              <h3>Goal-aware, not goal-forced.</h3>
+              <p>Your annual goal is useful context. The evidence still leads. If a classroom moment is really about collaboration, the reflection should follow collaboration.</p>
+            </section>
+          </aside>
+        </div>
+
+        <section class="belief-band">
+          <div class="page-width belief-band-inner">
+            <div><p class="eyebrow light">Grounded in our shared beliefs</p><h2>Reflection stays close to student experience.</h2></div>
+            <p>Start with what students and teachers actually say, do, make and experience. Then connect only the frameworks that genuinely help make sense of it.</p>
+            <button class="btn btn-light" data-nav="sources">Explore the sources</button>
+          </div>
         </section>
       </section>
 
       <section class="view" id="view-reflect" aria-labelledby="reflect-title">
-        <div class="reflect-header">
-          <button class="back-button" data-nav="home" aria-label="Back to home">←</button>
-          <div><p class="eyebrow">New reflection</p><h1 id="reflect-title">Bring one piece of evidence.</h1></div>
-        </div>
+        <div class="reflect-shell page-width">
+          <div class="reflect-topline">
+            <div><p class="eyebrow">New reflection</p><h1 id="reflect-title">Start with one piece of evidence.</h1><p>Bring something from your practice. Add a wondering if you have one. The system handles the framework complexity.</p></div>
+            <div class="goal-context-mini"><span>Your goal</span><strong>Student agency</strong><small>Used only when the evidence connects.</small></div>
+          </div>
 
-        <div id="captureChooser" class="capture-chooser">
-          <p class="screen-help">Start with the evidence. You can add a question afterwards; the AI can keep the reflection broad if you do not.</p>
-          <button class="mode-button mode-video" data-mode="video"><span>▶</span><div><strong>Classroom video</strong><small>Record now or choose an existing video</small></div><b>→</b></button>
-          <button class="mode-button mode-audio" data-mode="audio"><span>●</span><div><strong>Voice note</strong><small>Record a quick thought after a lesson</small></div><b>→</b></button>
-          <button class="mode-button mode-file" data-mode="file"><span>▤</span><div><strong>Unit, lesson or resource</strong><small>PDF, Word, PowerPoint, image or text</small></div><b>→</b></button>
-          <button class="mode-button mode-write" data-mode="write"><span>✎</span><div><strong>Write or paste</strong><small>Notes, an activity, assessment or reflection</small></div><b>→</b></button>
-        </div>
+          <div class="reflect-layout">
+            <div class="reflect-main">
+              <div class="step-line" aria-label="Reflection steps"><span class="is-active">1 · Evidence</span><span>2 · Wondering</span><span>3 · Reflect</span></div>
 
-        <div id="captureWorkspace" class="capture-workspace" hidden>
-          <div class="workspace-card">
-            <div class="workspace-top"><button class="text-button" id="changeMode">← Change evidence</button><span class="step-chip">1 of 2 · Evidence</span></div>
+              <div id="captureChooser" class="capture-chooser">
+                <div class="chooser-grid">
+                  <button class="evidence-choice" data-mode="video"><span class="choice-icon video">▶</span><strong>Classroom video</strong><small>Record or upload a lesson</small></button>
+                  <button class="evidence-choice" data-mode="audio"><span class="choice-icon audio">●</span><strong>Voice reflection</strong><small>Speak naturally for 30–60 seconds</small></button>
+                  <button class="evidence-choice" data-mode="file"><span class="choice-icon file">▤</span><strong>Unit, lesson or assessment</strong><small>PDF, DOCX, PPTX, image or text</small></button>
+                  <button class="evidence-choice" data-mode="write"><span class="choice-icon write">✎</span><strong>Write or paste</strong><small>Notes, activity or reflection</small></button>
+                </div>
+              </div>
 
-            <div class="capture-panel" data-panel="video" hidden>
-              <div class="panel-heading"><span class="panel-icon video">▶</span><div><h2>Classroom video</h2><p>Record a lesson on your phone or choose a video you already have.</p></div></div>
-              <label class="drop-zone video-zone" for="videoInput"><span class="big-upload">↑</span><strong>Record or choose video</strong><small>On a phone, your camera can open directly.</small><input id="videoInput" type="file" accept="video/*" capture="environment"></label>
-              <div class="file-preview" id="videoMeta" hidden><video id="videoPreview" controls playsinline></video><div><strong id="videoName"></strong><small id="videoSize"></small></div><button class="text-button" data-clear="video">Remove</button></div>
-              <div class="focus-presets"><span>Optional: pay attention to</span><div class="chip-row"><button class="focus-chip" data-focus="Student participation and whose voices are heard">Participation</button><button class="focus-chip" data-focus="Student agency, independence and meaningful decision-making">Agency</button><button class="focus-chip" data-focus="Cognitive demand, student thinking and questioning">Thinking</button><button class="focus-chip" data-focus="Access, learner variability and inclusive Tier 1">Access / UDL</button><button class="focus-chip" data-focus="Collaboration and how students build on one another's ideas">Collaboration</button></div></div>
-            </div>
+              <div id="captureWorkspace" class="capture-workspace" hidden>
+                <div class="workspace-head"><button class="text-link" id="changeMode">← Change evidence</button><span id="evidenceModeLabel">Evidence</span></div>
+
+                <div class="capture-panel" data-panel="video" hidden>
+                  <div class="capture-heading"><div><p class="eyebrow">Classroom video</p><h2>Revisit what actually happened.</h2><p>You are reviewing your own classroom evidence — not submitting yourself for evaluation.</p></div></div>
+                  <label class="upload-zone video-zone" for="videoInput"><span class="upload-mark">↑</span><strong>Record or choose video</strong><small>MP4, MOV or WebM. On a phone, the camera can open directly.</small><input id="videoInput" type="file" accept="video/*" capture="environment"></label>
+                  <div class="media-preview" id="videoMeta" hidden><video id="videoPreview" controls playsinline></video><div><strong id="videoName"></strong><small id="videoSize"></small></div><button class="text-link" data-clear="video">Remove</button></div>
+                  <div class="notice-options"><span>Optional · Pay particular attention to</span><div class="chip-row"><button class="focus-chip" data-focus="student participation and whose voices are heard">Participation</button><button class="focus-chip" data-focus="student agency, independence and meaningful decision-making">Agency</button><button class="focus-chip" data-focus="cognitive demand, student thinking and questioning">Thinking</button><button class="focus-chip" data-focus="access, learner variability and inclusive Tier 1">Access / UDL</button><button class="focus-chip" data-focus="collaboration and how students build on one another's ideas">Collaboration</button></div></div>
+                </div>
+
