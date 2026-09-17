@@ -1,0 +1,49 @@
+-focus">
+            <label for="videoFocus">What would you like the AI to pay particular attention to?</label>
+            <textarea id="videoFocus">Notice patterns in student participation, independence, collaboration, agency, access to the learning, and the instructional moves that appear to shape those experiences.</textarea>
+            <div class="video-focus-actions"><span class="video-demo-note">Prototype mode: the selected video is previewed only in your browser. The analysis shown is simulated until a live AI/video-processing service is connected.</span><button class="btn btn-primary" id="analyseVideo">Analyse classroom video</button></div>
+          </div>
+          <div class="transcript-list">
+            <div class="segment"><time>12:08</time><p><strong>Teacher:</strong> “What do you notice in Maya’s point? Build on it or challenge it.”</p></div>
+            <div class="segment"><time>12:34</time><p><strong>Student 1:</strong> “I think it connects to what we said about access…”</p></div>
+            <div class="segment"><time>12:47</time><p><strong>Student 2:</strong> “Can I disagree? I think the data shows something different.”</p></div>
+            <div class="segment"><time>13:02</time><p><strong>Student 3:</strong> “What evidence are you using?”</p></div>
+          </div>
+        </div>
+        <aside>
+          <div class="video-results" id="videoResults">
+          <div class="video-analysis-state"><strong>Demo analysis</strong><br><span class="small">These observations illustrate the intended AI experience. A live version would ground each observation in the uploaded video, transcript, and AISG source documents.</span></div>
+          <div class="video-observation"><div class="stamp">12:34–13:10 · Evidence</div><h3>Students build on and challenge one another’s ideas.</h3><p class="small subtle">Three students respond directly to peers without the teacher revoicing or redirecting between turns.</p><div class="connections"><span class="tag red">TLF · Collaboration</span><span class="tag violet">Growth · 3b</span></div></div>
+          <div class="video-observation"><div class="stamp">Interpretation</div><h3>Discourse is becoming more student-sustained.</h3><p class="small subtle">This moment is consistent with the Growth Continuum’s emphasis on students building on and extending others’ ideas. A single clip is not enough to infer a broader pattern.</p></div>
+          <div class="video-observation"><div class="stamp">Next evidence to collect</div><h3>Who is not yet entering the conversation?</h3><p class="small subtle">In the next observation, track participation distribution and whether multiple perspectives are included across the full lesson.</p></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="startModal" role="dialog" aria-modal="true" aria-labelledby="startTitle">
+  <div class="modal">
+    <div class="modal-head"><strong id="startTitle">Start a reflection</strong><button class="close" id="closeModal" aria-label="Close">×</button></div>
+    <div class="stepper" aria-hidden="true"><div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div></div>
+    <div class="modal-body">
+      <div class="modal-step active" data-step="1"><div class="eyebrow">Step 1</div><h2>What would you like to think about?</h2><p class="subtle">Choose the kind of evidence you are bringing. You can add more than one type in the same reflection.</p><div class="choice-grid">
+        <button class="choice selected" data-kind="Unit"><span class="choice-icon">▤</span><b>A Unit</b><span class="small">Planning + learning sequence</span></button>
+        <button class="choice" data-kind="Lesson"><span class="choice-icon">◫</span><b>A Lesson</b><span class="small">A specific learning experience</span></button>
+        <button class="choice" data-kind="Activity"><span class="choice-icon">◇</span><b>An Activity</b><span class="small">Task or engagement</span></button>
+        <button class="choice" data-kind="Assessment"><span class="choice-icon">✓</span><b>An Assessment</b><span class="small">Evidence + feedback</span></button>
+        <button class="choice" data-kind="Student learning"><span class="choice-icon">◎</span><b>Student Learning</b><span class="small">Work, data, voice</span></button>
+        <button class="choice" data-kind="Voice reflection"><span class="choice-icon">◉</span><b>A Voice Reflection</b><span class="small">Capture a thought quickly</span></button>
+        <button class="choice" data-kind="Classroom video"><span class="choice-icon">▶</span><b>A Classroom Video</b><span class="small">Reflect on moments over time</span></button>
+        <button class="choice" data-kind="Something else"><span class="choice-icon">＋</span><b>Something Else</b><span class="small">Any useful evidence</span></button>
+      </div></div>
+      <div class="modal-step" data-step="2"><div class="eyebrow">Step 2</div><h2>Bring some evidence.</h2><p class="subtle">For this demo, files remain in your browser and are not uploaded anywhere.</p><div class="upload-area" id="uploadArea"><input type="file" id="fileInput" multiple aria-label="Choose evidence files"><strong>Add files</strong><div class="small subtle">PDF, DOCX, PPTX, images, audio, or classroom video — demo only</div><div class="file-list" id="fileList"></div></div><div class="field"><label for="evidenceText">Or paste / write something</label><textarea id="evidenceText" placeholder="Paste a lesson, activity, reflection, notes, or other evidence…"></textarea></div><div class="field"><label for="wondering">What are you wondering about?</label><textarea id="wondering" placeholder="e.g. Students completed the task successfully, but I am wondering whether they actually had much ownership of the learning.">Students can choose how they present their learning, but I am not sure they are making decisions that actually shape the inquiry.</textarea></div></div>
+      <div class="modal-step" data-step="3"><div class="eyebrow">Step 3</div><h2>Choose a lens — or stay broad.</h2><p class="subtle">The AI should only use a framework when the evidence genuinely connects to it.</p><div class="lens-grid"><button class="lens-choice selected" data-lens="Explore broadly"><b>Explore broadly</b><span class="small">Let relevant connections emerge</span></button><button class="lens-choice" data-lens="TLF"><b>Transformative Learning Framework</b><span class="small">AISG learner experience</span></button><button class="lens-choice" data-lens="UDL"><b>UDL</b><span class="small">Variability, access, agency</span></button><button class="lens-choice" data-lens="MTSS"><b>MTSS / Tier 1</b><span class="small">Responsive core instruction</span></button><button class="lens-choice" data-lens="Growth"><b>Teacher Growth Continuum</b><span class="small">Evidence of evolving practice</span></button><button class="lens-choice" data-lens="Assessment"><b>Assessment</b><span class="small">Evidence, feedback, next steps</span></button></div><div class="summary-box" style="margin-top:18px"><div class="kicker">Demo AI</div><p style="font-size:14px">This prototype will simulate the reflection experience. When the live API is connected, the same workflow will retrieve relevant passages from approved AISG sources before producing feedback.</p></div></div>
+    </div>
+    <div class="modal-foot"><button class="btn btn-secondary" id="backStep" disabled>Back</button><button class="btn btn-primary" id="nextStep">Continue</button></div>
+  </div>
+</div>
+
+<div class="analysis-overlay" id="analysisOverlay" aria-live="polite"><div class="analysis-card"><div class="orb"></div><div class="eyebrow" style="justify-content:center">Demo AI reflection</div><h2>Connecting evidence to the right sources.</h2><p class="subtle">No live AI is running. This animation demonstrates the intended workflow.</p><div class="analysis-steps"><div class="analysis-step active"><span class="status"></span><span>Reading your evidence</span></div><div class="analysis-step"><span class="status"></span><span>Retrieving AISG framework sources</span></div><div class="analysis-step"><span class="status"></span><span>Separating evidence, interpretation and possibility</span></div><div class="analysis-step"><span class="status"></span><span>Preparing reflective questions and a next step</span></div></div></div></div>
+<div class="toast" id="toast"></div>
