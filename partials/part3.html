@@ -1,64 +1,32 @@
-eria common.\n\n4. Offer a planning scaffold, question examples, and teacher conference as optional Tier 1 supports.\n\n5. Students select the medium and audience that best fit the purpose of their inquiry.\n\n6. Add a brief reflection: “Which decision did your team make that most changed your learning?”</textarea><button class="btn btn-secondary btn-small" id="copyAdapt">Copy draft</button></div></div>
+
+            <div class="capture-panel" data-panel="audio" hidden>
+              <div class="panel-heading"><span class="panel-icon audio">●</span><div><h2>Voice note</h2><p>Speak naturally. A quick thought can be enough to start useful reflection.</p></div></div>
+              <div class="audio-recorder">
+                <button class="record-main" id="recordAudio"><span></span><strong>Start recording</strong></button>
+                <div class="record-status" id="audioStatus">Ready when you are.</div>
+                <audio id="audioPlayback" controls hidden></audio>
+                <label class="small-upload" for="audioInput">Or upload an audio file<input id="audioInput" type="file" accept="audio/*"></label>
+              </div>
+            </div>
+
+            <div class="capture-panel" data-panel="file" hidden>
+              <div class="panel-heading"><span class="panel-icon file">▤</span><div><h2>Add a unit, lesson or resource</h2><p>Bring what you already use. The goal is reflection, not extra documentation.</p></div></div>
+              <label class="drop-zone" for="documentInput"><span class="big-upload">＋</span><strong>Choose a file</strong><small>PDF, DOCX, PPTX, image, TXT or Markdown</small><input id="documentInput" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.md,image/*"></label>
+              <div class="document-preview" id="documentMeta" hidden><span class="doc-icon">▤</span><div><strong id="documentName"></strong><small id="documentSize"></small></div><button class="text-button" data-clear="file">Remove</button></div>
+            </div>
+
+            <div class="capture-panel" data-panel="write" hidden>
+              <div class="panel-heading"><span class="panel-icon write">✎</span><div><h2>Write or paste something</h2><p>A short reflection, learning activity or assessment is enough.</p></div></div>
+              <textarea class="large-textarea" id="writtenEvidence" placeholder="What happened? What did students do? Paste a lesson or activity here, or simply write what you noticed."></textarea>
             </div>
           </div>
-        </div>
 
-        <aside class="reflection-sidebar">
-          <div class="sidebar-card">
-            <h4>Grounded in source material</h4>
-            <div class="grounding-list">
-              <div class="grounding-item"><b>TLF Learning Engagement Indicators</b>Agency 2.2 · Personalisation 1.4</div>
-              <div class="grounding-item"><b>Teacher Growth & Reflection Framework</b>Domain 3c · Choice, Inquiry & Creativity</div>
-              <div class="grounding-item"><b>UDL Guidelines 3.0</b>Choice, autonomy, engagement, action & expression</div>
-              <div class="grounding-item"><b>MTSS / AISG Tier 1</b>Inclusive core design before additional support</div>
-            </div>
-            <button class="btn btn-ghost btn-small" data-go="frameworks">See sources →</button>
+          <div class="workspace-card question-card">
+            <div class="workspace-top"><span class="step-chip">2 of 2 · Your question</span><span class="optional">Optional</span></div>
+            <label for="focusQuestion">What are you wondering about?</label>
+            <textarea id="focusQuestion" placeholder="Leave blank for a broad AISG reflection, or ask something specific…"></textarea>
+            <div class="prompt-row"><button class="prompt-chip" data-prompt="What do you notice about student engagement and learning?">Engagement</button><button class="prompt-chip" data-prompt="Where do students have meaningful agency and where could it deepen?">Agency</button><button class="prompt-chip" data-prompt="What could I strengthen within Tier 1 before considering additional intervention?">Tier 1</button><button class="prompt-chip" data-prompt="How accessible is this learning while maintaining appropriate challenge?">Access + challenge</button></div>
+            <details class="lens-details"><summary>Reflection lens <span id="lensSummary">AISG connected reflection</span></summary><div class="lens-options"><button class="lens-option is-selected" data-lens="AISG connected reflection">AISG connected reflection<small>Use relevant TLF, Growth, UDL and Tier 1 connections</small></button><button class="lens-option" data-lens="Transformative Learning Framework">TLF<small>Focus on student learning experience</small></button><button class="lens-option" data-lens="UDL and inclusive Tier 1">UDL + Tier 1<small>Focus on variability, access and responsive core instruction</small></button><button class="lens-option" data-lens="Teacher Growth Continuum">Growth Continuum<small>Connect evidence to professional reflection</small></button></div></details>
           </div>
-          <div class="sidebar-card">
-            <h4>Evidence in this reflection</h4>
-            <div id="artifactList"><div class="grounding-item"><b>Sustainable Futures Unit.pdf</b>Unit overview</div><div class="grounding-item"><b>Final Task.docx</b>Performance task</div><div class="grounding-item"><b>Teacher reflection</b>Written note</div><div class="grounding-item"><b>Student choice board.pdf</b>Learning resource</div></div>
-          </div>
-          <div class="privacy"><strong>Private by default.</strong> In a production version, teacher evidence and reflections remain private unless the teacher explicitly chooses to share them.</div>
-        </aside>
-      </div>
-    </section>
 
-    <section class="view" id="view-frameworks">
-      <div class="page-head"><div><div class="eyebrow">Framework library</div><h1>The sources behind the reflection.</h1><p>This prototype treats AISG’s approved documents as the primary source of truth. External research can deepen the analysis, but it should not overwrite AISG’s language or intent.</p></div><div class="page-actions"><span class="tag red">6 TLF facets</span><span class="tag violet">4 growth domains</span><span class="tag green">UDL 3.0</span><span class="tag gold">MTSS</span></div></div>
-      <div class="framework-intro"><div><div class="eyebrow" style="color:#f1acba">Future AI grounding</div><h2>Retrieve first. Reason second.</h2><p>When the live AI is connected, a teacher’s evidence and question should retrieve relevant passages from these sources before the model interprets the evidence, asks questions, or suggests a next step.</p></div><div class="source-count"><b>Source of truth</b><span>AISG documents first · authoritative external sources second</span></div></div>
-
-      <div class="framework-section">
-        <div class="section-head"><div><div class="eyebrow">Transformative Learning Framework</div><h2>Engagement for All</h2></div><p>Learning Engagement Indicators describe what students experience, do, and become.</p></div>
-        <div class="facet-grid">
-          <div class="facet-card"><div class="facet-num">Facet 1</div><h3>Personalisation</h3><p>Learning responds to students’ identities, strengths, needs, interests, cultures, languages, and aspirations.</p><div class="indicator">1.4 · Students demonstrate understanding through multiple languages, modes, and pathways.</div></div>
-          <div class="facet-card"><div class="facet-num">Facet 2</div><h3>Agency</h3><p>Students take ownership by making meaningful decisions, reflecting on growth, and influencing their future.</p><div class="indicator">2.2 · Decisions about what, how, and how understanding is demonstrated.</div></div>
-          <div class="facet-card"><div class="facet-num">Facet 3</div><h3>Authenticity</h3><p>Learning connects to meaningful real-world contexts, challenges, audiences, and purposes.</p><div class="indicator">3.1 · Work reflects authentic practices, audiences, and purposes beyond school.</div></div>
-          <div class="facet-card"><div class="facet-num">Facet 4</div><h3>Creativity</h3><p>Learners generate ideas, innovate, solve problems, take thoughtful risks, and express thinking in original ways.</p><div class="indicator">4.1 · Students generate and contribute original ideas, products, and solutions.</div></div>
-          <div class="facet-card"><div class="facet-num">Facet 5</div><h3>Taking Action</h3><p>Students apply learning to make informed, purposeful, and ethical contributions.</p><div class="indicator">5.1 · Students apply learning to authentic opportunities and challenges.</div></div>
-          <div class="facet-card"><div class="facet-num">Facet 6</div><h3>Collaboration</h3><p>Learners work purposefully and respectfully with others to build understanding and solve complex problems.</p><div class="indicator">6.1 · Students collaborate purposefully to deepen learning and achieve shared goals.</div></div>
-        </div>
-      </div>
-
-      <div class="framework-section">
-        <div class="section-head"><div><div class="eyebrow">Teacher Growth & Reflection</div><h2>Four interconnected domains</h2></div><p>Growth is developmental, evidence-informed, and anchored in student experience.</p></div>
-        <div class="domain-grid">
-          <div class="domain-card"><div class="domain-num">Domain 1</div><h3>Purposeful & Inclusive Learning Design</h3><p>Learning purpose, understanding learners, inclusive engagement/materials, and assessment planning for equity and growth.</p></div>
-          <div class="domain-card"><div class="domain-num">Domain 2</div><h3>Inclusive Learning Culture & Environment</h3><p>Belonging, student voice, equitable routines, and purposeful use of space, time, and tools.</p></div>
-          <div class="domain-card"><div class="domain-num">Domain 3</div><h3>Transformative, Culturally Responsive Learning in Action</h3><p>Cognitive demand, inclusive discourse, choice/inquiry/creativity, and authentic application/social impact.</p></div>
-          <div class="domain-card"><div class="domain-num">Domain 4</div><h3>Collaborative Planning, Reflection & Professional Impact</h3><p>Feedback, evidence/data, learner reflection, collaboration, and community partnership.</p></div>
-        </div>
-      </div>
-
-      <div class="framework-section">
-        <div class="section-head"><div><div class="eyebrow">Supporting lenses</div><h2>UDL + MTSS</h2></div><p>Different lenses on access, learner variability, responsive instruction, and evidence.</p></div>
-        <div class="domain-grid">
-          <div class="domain-card"><div class="domain-num" style="color:var(--green)">UDL · CAST 3.0</div><h3>Design for learner variability</h3><p>Multiple means of engagement, representation, and action & expression; purposeful learner agency; access to meaningful and challenging learning.</p><div class="connections"><span class="tag green">Choice & autonomy</span><span class="tag green">Belonging</span><span class="tag green">Multiple media</span><span class="tag green">Monitoring progress</span></div></div>
-          <div class="domain-card"><div class="domain-num" style="color:var(--gold)">MTSS · AISG + MTSS Center</div><h3>Strong inclusive Tier 1 first</h3><p>A proactive, evidence-informed response cycle: strong core learning, universal screening, collaborative problem-solving, data-based decision making, targeted support, and progress monitoring.</p><div class="connections"><span class="tag gold">Tier 1</span><span class="tag gold">Screening</span><span class="tag gold">Progress monitoring</span><span class="tag gold">Data-based decisions</span></div></div>
-        </div>
-      </div>
-
-      <div class="framework-section">
-        <div class="section-head"><div><div class="eyebrow">Knowledge base</div><h2>Sources currently represented</h2></div><p>Demo content only — live retrieval will be added when an AI API is connected.</p></div>
-        <div class="source-table">
-          <div class="source-row header"><span>Source</span><span>Role</span><span>Status</span></div>
-          <div class="source-row"><b>TLF Learning Engagement Indicators (2026–27)</b><span>AISG learning expectations</span><span class="tag red">Primar
+          <div class="sticky-action"><div><small>Your evidence stays in this browser in demo mode.</small><strong>Ready to reflect?</strong></div><button class="primary-action" id="analyseEvidence">Reflect with Demo AI <span>→</span></button></div>
