@@ -1,36 +1,40 @@
-        </div>
+                    <section class="reflection-section connection-section"><p class="result-label">Connection to AISG practice</p><h2 id="connectionTitle"></h2><p id="connectionBody"></p><div class="framework-chips" id="frameworkChips"></div><details><summary>Why these connections?</summary><div class="grounding-copy" id="groundingCopy"></div></details></section>
+                    <section class="reflection-section question-section"><p class="result-label">A question worth considering</p><blockquote id="wonderingResult"></blockquote></section>
+                    <section class="reflection-section next-section"><p class="result-label">One small next move</p><h2 id="nextTitle"></h2><p id="nextBody"></p><div class="result-actions"><button class="btn btn-primary" id="saveGrowth">Save to My Growth</button><button class="btn btn-secondary" id="adaptThis">Adapt this</button><button class="btn btn-secondary" id="connectGoal">Connect to My Goal</button></div><div class="result-minor-actions"><button id="dismissSuggestion">Dismiss this suggestion</button><button id="challengeInterpretation">Challenge this interpretation</button></div></section>
+                    <section class="reflection-section watch-section"><p class="result-label">What to notice next time</p><p id="watchBody"></p></section>
+                  </div>
 
-        <div id="analysisScreen" class="analysis-screen" hidden>
-          <div class="analysis-orb"></div><p class="eyebrow">Demo AI</p><h2>Looking for evidence before advice.</h2><p id="analysisMessage">Reading what you shared…</p><div class="analysis-progress"><span></span></div>
-        </div>
+                  <aside class="result-aside">
+                    <section class="context-panel"><p class="eyebrow">Connected practice</p><h3>One piece of evidence. Relevant lenses only.</h3><p>These are not separate initiatives. They are overlapping ways of understanding the same learner experience.</p><div class="connected-list"><span>TLF</span><span>Teacher Growth</span><span>UDL / Tier 1</span><span>My Goal, when relevant</span></div></section>
+                    <section class="context-panel goal-aware"><p class="eyebrow">Your annual goal</p><h3>Agency through meaningful choice</h3><p id="goalConnectionCopy">The AI knows this goal exists, but does not need to force this reflection into it.</p></section>
+                  </aside>
+                </div>
 
-        <div id="resultScreen" class="result-screen" hidden>
-          <div class="result-top"><button class="back-button" id="newReflection" aria-label="Start another reflection">←</button><div><p class="eyebrow">Reflection</p><h1 id="resultTitle">A useful place to look next.</h1></div><button class="icon-button" id="shareResult" aria-label="Copy reflection summary">↗</button></div>
-          <div class="evidence-pill" id="evidencePill"><span>Evidence</span><strong id="evidenceLabel">Classroom video</strong><small id="evidenceDetail">Demo evidence</small></div>
+                <section class="coach-section"><div><p class="eyebrow">Keep thinking</p><h2>Ask a follow-up.</h2><p>Challenge the interpretation, ask for another option, or explore a connection more deeply.</p></div><div class="coach-thread" id="coachMessages"></div><div class="coach-entry"><input id="coachInput" aria-label="Ask a follow-up" placeholder="Why did you make that connection?"><button id="coachSend">Send</button></div><div class="coach-suggestions"><button data-coach="Why did you connect this to the TLF?">Why this TLF link?</button><button data-coach="Give me another practical option to try.">Another option</button><button data-coach="I disagree with this interpretation. Explain your reasoning.">Challenge the AI</button><button data-coach="How could I keep challenge high while improving access?">Access + challenge</button></div></section>
+              </div>
+            </div>
 
-          <aside class="goal-context-inline">
-            <div><span class="goal-context-label">Your goal this year</span><strong>Strengthen student agency through meaningful choice and reflection.</strong></div>
-            <div class="goal-context-tags"><span>TLF · Agency</span><span>Growth · 3c</span></div>
-            <small>AISG Reflect can use your goal as useful context when the evidence genuinely connects — it should not force every reflection back to the goal.</small>
-          </aside>
-
-          <article class="result-card notice-card"><p class="result-label">What I notice</p><h2 id="noticeTitle"></h2><p id="noticeBody"></p><div class="evidence-box" id="evidenceBox"></div></article>
-
-          <article class="result-card aisg-card"><p class="result-label">Why this matters at AISG</p><h2 id="connectionTitle"></h2><p id="connectionBody"></p><div class="framework-chips" id="frameworkChips"></div><details><summary>See the grounding</summary><div class="grounding-copy" id="groundingCopy"></div></details></article>
-
-          <article class="result-card question-result"><p class="result-label">A question worth sitting with</p><blockquote id="wonderingResult"></blockquote></article>
-
-          <article class="result-card next-card"><p class="result-label">One small next move</p><h2 id="nextTitle"></h2><p id="nextBody"></p><button class="secondary-action" id="saveGrowth">Connect to My Goal</button></article>
-
-          <article class="result-card watch-card"><p class="result-label">What to notice next time</p><p id="watchBody"></p></article>
-
-          <div class="coach-box"><div><p class="eyebrow">Keep thinking</p><h2>Ask a follow-up.</h2></div><div class="coach-messages" id="coachMessages"></div><div class="coach-input"><input id="coachInput" placeholder="Why did you make that connection?"><button id="coachSend">Send</button></div><div class="coach-suggestions"><button data-coach="Why did you connect this to the TLF?">Why this TLF link?</button><button data-coach="Give me another practical option to try.">Another option</button><button data-coach="How could I keep the challenge high while improving access?">Access + challenge</button></div></div>
+            <aside class="reflect-side-note">
+              <p class="eyebrow">Reflection principles</p>
+              <ul><li><strong>Evidence</strong><span>What was actually seen, heard or read.</span></li><li><strong>Interpretation</strong><span>What that evidence might suggest.</span></li><li><strong>Possibility</strong><span>Something worth considering or trying.</span></li></ul>
+              <p class="small-note">A single moment is never treated as a verdict on teacher practice.</p>
+            </aside>
+          </div>
         </div>
       </section>
 
-      <section class="view" id="view-growth" aria-labelledby="growth-title">
-        <div class="page-heading"><p class="eyebrow">My growth</p><h1 id="growth-title">See the thread, not a score.</h1><p>Connect reflections, evidence and experiments over time. My Goal gives the year a focus; My Growth shows the learning that develops around it.</p></div>
-        <article class="goal-card"><div class="goal-label">Current focus · 2026–27</div><h2>Strengthen student agency through meaningful choice and reflection.</h2><p>I want students to make more consequential decisions about their learning while maintaining clarity, appropriate challenge and inclusive access.</p><div class="goal-watch"><strong>Evidence I am watching for</strong><span>Students can explain the choices they make, why they matter, and how those choices affect their learning.</span></div><div class="framework-chips"><span>TLF · Agency</span><span>Growth · 3c</span><span>Growth · 4c</span></div><button class="goal-card-link" data-nav="goal">Open My Goal →</button></article>
-        <div class="timeline" id="growthTimeline">
-          <article><time>Today</time><span class="timeline-dot"></span><div><strong>Moved one meaningful decision earlier</strong><p>Saved from the Sustainable Futures reflection.</p><small>Agency · next step</small></div></article>
-          <article><time>Sep 16</time><span class="timeline-dot"></span><div><strong>Group work felt teacher-dependent</strong><p>Voice reflection after students repeatedly sought permission.</p><small>Growth 2c · autonomy</small></div></article>
+      <section class="view" id="view-goal" aria-labelledby="goal-title">
+        <div class="page-width subpage-head"><p class="eyebrow">My Goal · 2026–27</p><h1 id="goal-title">A focus for learning, not a progress meter.</h1><p>Your goal gives the reflection context across the year. It should help reveal a thread — not pull every piece of evidence toward the same conclusion.</p></div>
+        <div class="page-width goal-page-grid">
+          <article class="goal-main">
+            <p class="eyebrow light">Professional goal</p><h2>Strengthen student agency through meaningful choice and reflection.</h2><p>Help students make more consequential decisions about their learning while maintaining clarity, appropriate challenge and inclusive access.</p>
+            <div class="goal-map"><div><span>TLF facet</span><strong>Agency</strong></div><div><span>Growth domain</span><strong>3c · Choice, Inquiry & Creativity</strong></div><div><span>Related practice</span><strong>4c · Learner reflection</strong></div></div>
+            <div class="goal-evidence dark"><span>Evidence I’m watching for</span><p>Students can explain the choices they make, why those choices matter, and how those decisions influence their learning.</p></div>
+          </article>
+          <aside class="goal-side-stack">
+            <section><p class="eyebrow">Current question</p><h3>Where are students making decisions that genuinely shape the learning?</h3></section>
+            <section><p class="eyebrow">Latest next move</p><h3>Move one meaningful decision earlier.</h3><p>Keep the learning goal fixed; open a bounded decision about direction or inquiry.</p></section>
+          </aside>
+        </div>
+        <div class="page-width goal-thread">
+          <div class="section-heading-row"><div><p class="eyebrow">Evidence over time</p><h2>What is beginning to form a thread?</h2></div><button class="btn btn-secondary" data-nav="reflect">Add a reflection</button></div>
