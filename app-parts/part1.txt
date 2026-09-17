@@ -1,61 +1,49 @@
 (() => {
-  const $ = (s, root=document) => root.querySelector(s);
-  const $$ = (s, root=document) => [...root.querySelectorAll(s)];
-  const views = $$('.view');
-  const navButtons = $$('[data-nav]');
-  const bottomButtons = $$('.bottom-nav [data-nav]');
-  const captureChooser = $('#captureChooser');
-  const captureWorkspace = $('#captureWorkspace');
-  const analysisScreen = $('#analysisScreen');
-  const resultScreen = $('#resultScreen');
-  const focusQuestion = $('#focusQuestion');
-  const lensSummary = $('#lensSummary');
-  const toast = $('#toast');
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const views=$$('.view'), desktopNav=$$('.desktop-nav [data-nav]'), mobileNav=$$('.mobile-nav [data-nav]');
+  const captureChooser=$('#captureChooser'), captureWorkspace=$('#captureWorkspace'), analysisScreen=$('#analysisScreen'), resultScreen=$('#resultScreen');
+  const focusQuestion=$('#focusQuestion'), lensSummary=$('#lensSummary'), toast=$('#toast');
+  let activeMode=null, selectedLens='AISG connected reflection', videoUrl=null, audioUrl=null, recorder=null, audioChunks=[], selectedFile=null;
 
-  let activeMode = null;
-  let selectedLens = 'AISG connected reflection';
-  let videoUrl = null;
-  let audioUrl = null;
-  let recorder = null;
-  let audioChunks = [];
-  let selectedFile = null;
-
-  const demo = {
-    video: {
-      title: 'A useful place to look next.',
-      noticeTitle: 'Students are beginning to sustain the discussion themselves.',
-      noticeBody: 'In this moment, students respond directly to one another, ask for evidence and challenge an idea without the teacher needing to revoice every contribution.',
-      evidence: '12:34–13:10 · Three student turns build directly on a peer contribution. The teacher prompts once, then steps out of the exchange.',
-      connectionTitle: 'The strongest connection is to collaboration and inclusive discourse.',
-      connectionBody: 'This moment is consistent with AISG’s emphasis on purposeful collaboration and with the Growth Continuum’s movement toward students independently building on and extending one another’s ideas. It is evidence from one moment, not a judgement about the whole lesson.',
-      chips: ['TLF · Collaboration 6.1','Growth · 3b Inclusive Discourse','UDL · Participation','Tier 1 · Access'],
-      grounding: 'AISG TLF Collaboration develops learners’ capacity to work purposefully and respectfully with others. Teacher Growth Domain 3b focuses on inclusive discourse and collaboration, including students building on and extending others’ ideas. UDL and Tier 1 are used here as supporting lenses for participation and access.',
-      wondering: 'Who is not yet entering this conversation — and what conditions might help them contribute without lowering the cognitive demand?',
-      nextTitle: 'Track participation before changing the structure.',
-      nextBody: 'For one discussion, quickly tally who speaks and who is responded to. Use that evidence to decide whether you need a different routine, wait time, grouping structure or entry point.',
-      watch: 'Look for whether participation becomes more broadly distributed and whether students continue to include multiple perspectives without teacher prompting.'
+  const demo={
+    video:{
+      title:'A useful place to look next.',
+      noticeTitle:'Students are beginning to sustain the discussion themselves.',
+      noticeBody:'In this moment, students respond directly to one another, ask for evidence and challenge an idea without the teacher needing to revoice every contribution.',
+      evidence:'12:34–13:10 · Three student turns build directly on a peer contribution. The teacher prompts once, then steps out of the exchange.',
+      connectionTitle:'The strongest connection is to collaboration and inclusive discourse.',
+      connectionBody:'This moment is consistent with AISG’s emphasis on purposeful collaboration and with the Growth Continuum’s movement toward students independently building on and extending one another’s ideas. It is evidence from one moment, not a judgement about the whole lesson.',
+      chips:['TLF · Collaboration 6.1','Growth · 3b Inclusive Discourse','UDL · Participation','Tier 1 · Access'],
+      grounding:'AISG TLF Collaboration develops learners’ capacity to work purposefully and respectfully with others. Teacher Growth Domain 3b focuses on inclusive discourse and collaboration. UDL and Tier 1 are supporting lenses for participation and access.',
+      wondering:'Who is not yet entering this conversation — and what conditions might help them contribute without lowering the cognitive demand?',
+      nextTitle:'Track participation before changing the structure.',
+      nextBody:'For one discussion, quickly tally who speaks and who is responded to. Use that evidence to decide whether you need a different routine, wait time, grouping structure or entry point.',
+      watch:'Look for whether participation becomes more broadly distributed and whether students continue to include multiple perspectives without teacher prompting.',
+      goal:'This evidence is mainly about Collaboration and inclusive discourse. Your Agency goal remains useful context, but there is not enough here to force a goal connection.'
     },
-    audio: {
-      title: 'Your reflection points to a question about independence.',
-      noticeTitle: 'Students were collaborating, but decision-making still came back to you.',
-      noticeBody: 'Your voice note describes students repeatedly asking for permission before making routine group decisions. The tension is not whether collaboration happened; it is how much autonomy the routines actually allowed.',
-      evidence: 'Teacher reflection · “Students kept coming back to me for permission before making decisions. They were collaborating, but I wonder if I had created enough space for them to take ownership.”',
-      connectionTitle: 'Agency and autonomy-supportive routines overlap here.',
-      connectionBody: 'AISG’s Agency facet emphasizes ownership and meaningful decisions. Growth Domain 2c looks at routines that increasingly support students to manage learning with independence. This is a useful place to explore the conditions around students, rather than label the students themselves.',
-      chips: ['TLF · Agency','Growth · 2c Routines & Autonomy','UDL · Choice & autonomy','Tier 1 · Proactive design'],
-      grounding: 'The TLF describes agency as ownership, meaningful decision-making and growing independence. Growth Domain 2c moves from teacher-directed routines toward students independently managing and adapting routines. UDL supports purposeful choice and autonomy within clear goals.',
-      wondering: 'Which decisions could students reasonably make without checking with you first — and what would they need to know to make those decisions well?',
-      nextTitle: 'Make one routine decision explicitly theirs.',
-      nextBody: 'Before the next group task, name one decision students own — for example role allocation, tool choice or when to move to the next step — and give a simple boundary for making it.',
-      watch: 'Notice whether students make the decision independently, how often they still seek permission, and whether the new autonomy improves or complicates access for different learners.'
+    audio:{
+      title:'Your reflection points to a question about independence.',
+      noticeTitle:'Students were collaborating, but decision-making still came back to you.',
+      noticeBody:'Your voice note describes students repeatedly asking for permission before making routine group decisions. The tension is not whether collaboration happened; it is how much autonomy the routines actually allowed.',
+      evidence:'Teacher reflection · “Students kept coming back to me for permission before making decisions. They were collaborating, but I wonder if I had created enough space for them to take ownership.”',
+      connectionTitle:'Agency and autonomy-supportive routines overlap here.',
+      connectionBody:'AISG’s Agency facet emphasizes ownership and meaningful decisions. Growth Domain 2c looks at routines that increasingly support students to manage learning with independence. This is a useful place to explore the conditions around students, rather than label the students themselves.',
+      chips:['TLF · Agency','Growth · 2c Routines & Autonomy','UDL · Choice & autonomy','Tier 1 · Proactive design'],
+      grounding:'The TLF describes agency as ownership, meaningful decision-making and growing independence. Growth Domain 2c moves from teacher-directed routines toward students independently managing and adapting routines. UDL supports purposeful choice and autonomy within clear goals.',
+      wondering:'Which decisions could students reasonably make without checking with you first — and what would they need to know to make those decisions well?',
+      nextTitle:'Make one routine decision explicitly theirs.',
+      nextBody:'Before the next group task, name one decision students own — for example role allocation, tool choice or when to move to the next step — and give a simple boundary for making it.',
+      watch:'Notice whether students make the decision independently, how often they still seek permission, and whether the new autonomy improves or complicates access for different learners.',
+      goal:'This does connect to your current Agency goal because the evidence is about who holds meaningful decisions during learning.'
     },
-    file: {
-      title: 'The design already creates choice. The question is where that choice sits.',
-      noticeTitle: 'Students can choose how to show understanding, while the direction of inquiry remains teacher-defined.',
-      noticeBody: 'The learning design provides multiple ways to communicate understanding. That is meaningful flexibility. It is different, however, from students making decisions that shape the intellectual direction of the learning.',
-      evidence: 'Unit evidence · Students may demonstrate final understanding through several product formats, while all groups investigate the same teacher-selected sustainability question.',
-      connectionTitle: 'Personalisation and Agency are doing different work here.',
-      connectionBody: 'Multiple modes and pathways connect strongly to Personalisation and UDL. Agency becomes more visible when students make consequential decisions about what they investigate, how they learn, or how they shape the learning — while clarity and appropriate challenge remain common.',
-      chips: ['TLF · Personalisation 1.4','TLF · Agency 2.2','Growth · 3c Choice & Inquiry','UDL · Action & Expression','Tier 1 · Inclusive core'],
-      grounding: 'TLF Personalisation includes multiple languages, modes and pathways. Agency 2.2 includes meaningful decisions about what students learn, how they learn and how they demonstrate understanding. Growth Domain 3c develops from prescribed pathways toward students generating ideas, making decisions and managing inquiry.',
-      wondering: 'Where could students make one decision that changes what they learn — not only how they present it?',
+    file:{
+      title:'The design already creates choice. The question is where that choice sits.',
+      noticeTitle:'Students can choose how to show understanding, while the direction of inquiry remains teacher-defined.',
+      noticeBody:'The learning design provides multiple ways to communicate understanding. That is meaningful flexibility. It is different, however, from students making decisions that shape the intellectual direction of the learning.',
+      evidence:'Unit evidence · Students may demonstrate final understanding through several product formats, while all groups investigate the same teacher-selected sustainability question.',
+      connectionTitle:'Personalisation and Agency are doing different work here.',
+      connectionBody:'Multiple modes and pathways connect strongly to Personalisation and UDL. Agency becomes more visible when students make consequential decisions about what they investigate, how they learn, or how they shape the learning — while clarity and appropriate challenge remain common.',
+      chips:['TLF · Personalisation 1.4','TLF · Agency 2.2','Growth · 3c Choice & Inquiry','UDL · Action & Expression','Tier 1 · Inclusive core'],
+      grounding:'TLF Personalisation includes multiple languages, modes and pathways. Agency 2.2 includes meaningful decisions about what students learn, how they learn and how they demonstrate understanding. Growth Domain 3c develops from prescribed pathways toward students generating ideas, making decisions and managing inquiry.',
+      wondering:'Where could students make one decision that changes what they learn — not only how they present it?',
+      nextTitle:'Move one meaningful decision earlier.',
