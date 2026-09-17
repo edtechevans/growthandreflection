@@ -19,6 +19,16 @@
                   <textarea class="large-textarea" id="writtenEvidence" placeholder="What happened? What did students do? Paste a lesson or activity here, or simply write what you noticed."></textarea>
                 </div>
 
+                <div class="capture-panel observation-panel" data-panel="observation" hidden>
+                  <div class="capture-heading"><p class="eyebrow">Classroom Observation Notes</p><h2>Turn notes into focused TLF feedback.</h2><p>Paste or upload observation notes. The response stays intentionally narrow: two commendations and one wondering, with each item connected to one TLF facet and one indicator only.</p></div>
+                  <textarea class="large-textarea observation-notes" id="observationNotes" placeholder="Paste classroom observation notes here…\n\nFor example: Students moved into groups quickly. Several students referred directly to peers’ ideas during the discussion. The teacher offered two ways to record thinking, and students chose the format that worked best for them. Most decisions about the direction of the task remained teacher-defined."></textarea>
+                  <div class="observation-upload-row">
+                    <label class="inline-upload" for="observationTextFile">Upload TXT or Markdown<input id="observationTextFile" type="file" accept=".txt,.md,text/plain,text/markdown"></label>
+                    <span id="observationFileStatus">Or paste notes directly above.</span>
+                  </div>
+                  <div class="observation-format-note"><strong>Response format</strong><span>2 Commendations · 1 Wondering · one TLF facet per item</span></div>
+                </div>
+
                 <div class="wondering-block">
                   <div><p class="eyebrow">Step 2 · Optional</p><h2>What are you wondering about?</h2><p>Leave this blank for a broad AISG reflection.</p></div>
                   <textarea id="focusQuestion" placeholder="e.g. I’m wondering whether students were really making meaningful decisions, or simply choosing between formats."></textarea>
@@ -36,6 +46,42 @@
 
               <div id="resultScreen" class="result-screen" hidden>
                 <div class="result-header"><button class="back-square" id="newReflection" aria-label="Start another reflection">←</button><div><p class="eyebrow">Reflection</p><h1 id="resultTitle">A useful place to look next.</h1></div><button class="icon-button" id="shareResult" aria-label="Copy reflection summary">↗</button></div>
+
+                <section id="observationResult" class="observation-result" hidden>
+                  <div class="observation-result-intro">
+                    <p class="eyebrow">TLF-only observation feedback</p>
+                    <h2>Two commendations. One wondering.</h2>
+                    <p>Each item below is intentionally connected to one TLF facet and one indicator only. The connection should come directly from the observation notes rather than from a broad judgement of practice.</p>
+                  </div>
+
+                  <div class="observation-notes-source">
+                    <div><span>Observation notes used</span><strong>Evidence first</strong></div>
+                    <p id="observationEvidenceExcerpt"></p>
+                  </div>
+
+                  <div class="observation-feedback-grid">
+                    <article class="observation-feedback-card commendation-card">
+                      <div class="observation-card-top"><span class="feedback-kind">Commendation 1</span><span class="tlf-only-tag">TLF 6.1 · Collaboration</span></div>
+                      <h2>You create conditions for students to build meaning with one another.</h2>
+                      <div class="notes-connection"><strong>Connection to your notes</strong><p id="observationNoteOne"></p></div>
+                      <p>The notes suggest students are responding to peers and contributing to shared thinking rather than relying only on teacher-mediated interaction. That is a useful strength to preserve and extend.</p>
+                    </article>
+
+                    <article class="observation-feedback-card commendation-card">
+                      <div class="observation-card-top"><span class="feedback-kind">Commendation 2</span><span class="tlf-only-tag">TLF 1.4 · Personalisation</span></div>
+                      <h2>You provide more than one pathway into the learning.</h2>
+                      <div class="notes-connection"><strong>Connection to your notes</strong><p id="observationNoteTwo"></p></div>
+                      <p>The notes point to flexibility in how students access, participate in, or communicate learning while working toward a shared intention. That supports learner variability without lowering the expectation.</p>
+                    </article>
+
+                    <article class="observation-feedback-card wondering-card">
+                      <div class="observation-card-top"><span class="feedback-kind">Wondering</span><span class="tlf-only-tag">TLF 2.2 · Agency</span></div>
+                      <h2>What might shift if students owned one more consequential decision?</h2>
+                      <div class="notes-connection"><strong>Connection to your notes</strong><p id="observationNoteThree"></p></div>
+                      <p>I wonder what might happen if one decision about direction, process, or demonstration were explicitly transferred to students while the learning goal and expectations remained clear.</p>
+                    </article>
+                  </div>
+                </section>
 
                 <div class="result-columns">
                   <div class="result-primary">
