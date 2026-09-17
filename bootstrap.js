@@ -1,6 +1,6 @@
 (async()=>{
   const root=document.getElementById('appRoot');
-  const version='6';
+  const version='7';
   const parts=['partials/part1.html','partials/part2.html','partials/part3.html','partials/part4.html','partials/part5.html'];
   try{
     const html=(await Promise.all(parts.map(p=>fetch(`${p}?v=${version}`,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(p);return r.text()})))).join('');
